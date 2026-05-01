@@ -1,0 +1,155 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{38874D0B-B97E-480D-955F-1B8A2A7424FF}|DAL\\DAL.csproj|c:\\users\\ferna\\documents\\gcf\\proyecto-ingenieria-de-software\\gestion-canchas\\dal\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38874D0B-B97E-480D-955F-1B8A2A7424FF}|DAL\\DAL.csproj|solutionrelative:dal\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E7F5516-63FA-4190-81CC-29A6EC45BAF7}|BE\\BE.csproj|c:\\users\\ferna\\documents\\gcf\\proyecto-ingenieria-de-software\\gestion-canchas\\be\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E7F5516-63FA-4190-81CC-29A6EC45BAF7}|BE\\BE.csproj|solutionrelative:be\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D11E6DFF-F459-47BB-AA52-F82C2D973CAA}|Security\\Security.csproj|c:\\users\\ferna\\documents\\gcf\\proyecto-ingenieria-de-software\\gestion-canchas\\security\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D11E6DFF-F459-47BB-AA52-F82C2D973CAA}|Security\\Security.csproj|solutionrelative:security\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC6B44DE-1731-4982-8D50-320932D9AB44}|BLL\\BLL.csproj|c:\\users\\ferna\\documents\\gcf\\proyecto-ingenieria-de-software\\gestion-canchas\\bll\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC6B44DE-1731-4982-8D50-320932D9AB44}|BLL\\BLL.csproj|solutionrelative:bll\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76428F4D-07A0-482C-BFCF-F20B24D86AC3}|UI\\UI.csproj|c:\\users\\ferna\\documents\\gcf\\proyecto-ingenieria-de-software\\gestion-canchas\\ui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76428F4D-07A0-482C-BFCF-F20B24D86AC3}|UI\\UI.csproj|solutionrelative:ui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76428F4D-07A0-482C-BFCF-F20B24D86AC3}|UI\\UI.csproj|c:\\users\\ferna\\documents\\gcf\\proyecto-ingenieria-de-software\\gestion-canchas\\ui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{76428F4D-07A0-482C-BFCF-F20B24D86AC3}|UI\\UI.csproj|solutionrelative:ui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76428F4D-07A0-482C-BFCF-F20B24D86AC3}|UI\\UI.csproj|c:\\users\\ferna\\documents\\gcf\\proyecto-ingenieria-de-software\\gestion-canchas\\ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76428F4D-07A0-482C-BFCF-F20B24D86AC3}|UI\\UI.csproj|solutionrelative:ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76428F4D-07A0-482C-BFCF-F20B24D86AC3}|UI\\UI.csproj|c:\\users\\ferna\\documents\\gcf\\proyecto-ingenieria-de-software\\gestion-canchas\\ui\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{76428F4D-07A0-482C-BFCF-F20B24D86AC3}|UI\\UI.csproj|solutionrelative:ui\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\Security\\Class1.cs",
+              "RelativeDocumentMoniker": "Security\\Class1.cs",
+              "ToolTip": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\Security\\Class1.cs",
+              "RelativeToolTip": "Security\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T20:00:49.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\DAL\\Class1.cs",
+              "RelativeDocumentMoniker": "DAL\\Class1.cs",
+              "ToolTip": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\DAL\\Class1.cs",
+              "RelativeToolTip": "DAL\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T20:00:03.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\BLL\\Class1.cs",
+              "RelativeDocumentMoniker": "BLL\\Class1.cs",
+              "ToolTip": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\BLL\\Class1.cs",
+              "RelativeToolTip": "BLL\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T19:59:28.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\BE\\Class1.cs",
+              "RelativeDocumentMoniker": "BE\\Class1.cs",
+              "ToolTip": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\BE\\Class1.cs",
+              "RelativeToolTip": "BE\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T19:58:27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\UI\\App.config",
+              "RelativeDocumentMoniker": "UI\\App.config",
+              "ToolTip": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\UI\\App.config",
+              "RelativeToolTip": "UI\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-01T19:55:29.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\UI\\Form1.cs",
+              "RelativeDocumentMoniker": "UI\\Form1.cs",
+              "ToolTip": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\UI\\Form1.cs",
+              "RelativeToolTip": "UI\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T19:55:22.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\UI\\Program.cs",
+              "RelativeDocumentMoniker": "UI\\Program.cs",
+              "ToolTip": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\UI\\Program.cs",
+              "RelativeToolTip": "UI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T19:54:59.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\UI\\Form1.cs",
+              "RelativeDocumentMoniker": "UI\\Form1.cs",
+              "ToolTip": "C:\\Users\\ferna\\Documents\\GCF\\Proyecto-Ingenieria-de-Software\\Gestion-Canchas\\UI\\Form1.cs [Design]",
+              "RelativeToolTip": "UI\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T19:53:57.246Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

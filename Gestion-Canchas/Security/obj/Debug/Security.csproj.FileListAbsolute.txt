@@ -1,0 +1,6 @@
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\Security\bin\Debug\Security.dll
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\Security\bin\Debug\Security.pdb
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\Security\obj\Debug\Security.csproj.AssemblyReference.cache
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\Security\obj\Debug\Security.csproj.CoreCompileInputs.cache
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\Security\obj\Debug\Security.dll
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\Security\obj\Debug\Security.pdb

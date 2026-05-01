@@ -1,0 +1,13 @@
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\bin\Debug\BLL.dll
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\bin\Debug\BLL.pdb
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\bin\Debug\BE.dll
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\bin\Debug\DAL.dll
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\bin\Debug\Security.dll
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\bin\Debug\BE.pdb
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\bin\Debug\DAL.pdb
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\bin\Debug\Security.pdb
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\obj\Debug\BLL.csproj.Up2Date
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\obj\Debug\BLL.dll
+C:\Users\ferna\Documents\GCF\Proyecto-Ingenieria-de-Software\Gestion-Canchas\BLL\obj\Debug\BLL.pdb
