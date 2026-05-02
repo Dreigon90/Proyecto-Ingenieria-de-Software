@@ -1,0 +1,89 @@
+=========================
+Build results
+=========================
+
+bin/
+obj/
+out/
+
+=========================
+Visual Studio
+=========================
+
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+=========================
+Rider / VS Code
+=========================
+
+.idea/
+.vscode/
+
+=========================
+Logs
+=========================
+
+*.log
+
+=========================
+NuGet
+=========================
+
+*.nupkg
+packages/
+*.snupkg
+.nuget/
+
+=========================
+OS files
+=========================
+
+.DS_Store
+Thumbs.db
+
+=========================
+Environment files
+=========================
+
+.env
+.env.*
+
+=========================
+Publish output
+=========================
+
+publish/
+*.publishproj
+
+=========================
+Database / local files
+=========================
+
+*.mdf
+*.ldf
+
+=========================
+Secrets (MUY importante)
+=========================
+
+appsettings.Development.json
+secrets.json
+
+=========================
+Resharper
+=========================
+
+_ReSharper*/
+*.DotSettings.user
+
+=========================
+Others
+=========================
+
+*.cache
+*.tmp
+*.temp
