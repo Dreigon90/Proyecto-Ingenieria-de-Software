@@ -50,10 +50,6 @@
       <Project>{9e7f5516-63fa-4190-81cc-29a6ec45baf7}</Project>
       <Name>BE</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Security\Security.csproj">
-      <Project>{d11e6dff-f459-47bb-aa52-f82c2d973caa}</Project>
-      <Name>Security</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

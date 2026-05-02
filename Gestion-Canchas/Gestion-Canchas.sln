@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{76428F4D-07A0-482C-BFCF-F20B24D86AC3}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{38874D0B-B97E-480D-955F-1B8A2A7424FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security", "Security\Security.csproj", "{D11E6DFF-F459-47BB-AA52-F82C2D973CAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{EE672C57-B238-46AF-9044-71198AFA1605}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{38874D0B-B97E-480D-955F-1B8A2A7424FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38874D0B-B97E-480D-955F-1B8A2A7424FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38874D0B-B97E-480D-955F-1B8A2A7424FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D11E6DFF-F459-47BB-AA52-F82C2D973CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D11E6DFF-F459-47BB-AA52-F82C2D973CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D11E6DFF-F459-47BB-AA52-F82C2D973CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D11E6DFF-F459-47BB-AA52-F82C2D973CAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE672C57-B238-46AF-9044-71198AFA1605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE672C57-B238-46AF-9044-71198AFA1605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE672C57-B238-46AF-9044-71198AFA1605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE672C57-B238-46AF-9044-71198AFA1605}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

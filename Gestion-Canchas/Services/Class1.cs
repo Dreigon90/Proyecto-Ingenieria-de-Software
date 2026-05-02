@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BE;
 
-namespace Security
+namespace Services
 {
     public class Class1
     {
