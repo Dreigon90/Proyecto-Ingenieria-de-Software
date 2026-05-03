@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using BE;
-using Security;
+using Services;
 
 namespace DAL
 {
     public class DAO
     {
-        static SqlConnection mConexion = new SqlConnection(ConfigurationManager.ConnectionStrings["cadena"].ConnectionString); // Base ""
+        static SqlConnection mConexion = new SqlConnection(ConfigurationManager.ConnectionStrings["cadena"].ConnectionString); // Base "GestionCanchas"
 
         public static DataSet EjecutarDataSet(string pCommand)
         {
