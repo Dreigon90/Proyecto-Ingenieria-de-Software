@@ -1,0 +1,106 @@
+USE GestionCanchas
+GO
+
+CREATE TABLE Usuarios
+(
+    id_usuario INT PRIMARY KEY IDENTITY(1,1),
+
+    username VARCHAR(50) NOT NULL UNIQUE,
+
+    password VARCHAR(255) NOT NULL
+)
+GO
+
+CREATE TABLE Bitacora
+(
+    id_bitacora INT PRIMARY KEY IDENTITY(1,1),
+
+    id_usuario INT NOT NULL,
+
+    mensaje VARCHAR(255) NOT NULL,
+
+    fecha DATETIME NOT NULL,
+
+    estado VARCHAR(50),
+
+    CONSTRAINT FK_Bitacora_Usuario
+    FOREIGN KEY (id_usuario)
+    REFERENCES Usuarios(id_usuario)
+)
+GO
+
+CREATE PROCEDURE BuscarUsuario
+(
+    @nombre VARCHAR(50)
+)
+AS
+BEGIN
+
+    SELECT
+        id_usuario,
+        username,
+        password
+    FROM Usuarios
+    WHERE username = @nombre
+
+END
+GO
+
+CREATE PROCEDURE InsertarBitacora
+(
+    @idUsuario INT,
+    @mensaje VARCHAR(255),
+    @fecha DATETIME
+)
+AS
+BEGIN
+
+    INSERT INTO Bitacora
+    (
+        id_usuario,
+        mensaje,
+        fecha
+    )
+    VALUES
+    (
+        @idUsuario,
+        @mensaje,
+        @fecha
+    )
+
+END
+GO
+
+CREATE PROCEDURE GuardarUsuario
+(
+    @username VARCHAR(50),
+    @password VARCHAR(255)
+)
+AS
+BEGIN
+
+    INSERT INTO Usuarios
+    (
+        username,
+        password
+    )
+    VALUES
+    (
+        @username,
+        @password
+    )
+
+END
+GO
+
+INSERT INTO Usuarios
+(
+    username,
+    password
+)
+VALUES
+(
+    'admin',
+    '1234'
+)
+GO

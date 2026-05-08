@@ -15,14 +15,28 @@ namespace DAL
     {
         static SqlConnection mConexion = new SqlConnection(ConfigurationManager.ConnectionStrings["cadena"].ConnectionString); // Base "GestionCanchas"
 
-        public static DataSet EjecutarDataSet(string pCommand)
+        public DataSet EjecutarDataSet(string pCommandText, Dictionary<string, object> parametros = null)
         {
             try
             {
-                SqlDataAdapter mDa = new SqlDataAdapter(pCommand, mConexion);
-                DataSet mDs = new DataSet();
-                mDa.Fill(mDs);
-                return mDs;
+                using (SqlCommand mCom = new SqlCommand(pCommandText, mConexion))
+                {
+                    mCom.CommandType = CommandType.StoredProcedure;
+                    if (parametros != null)
+                    {
+                        foreach (var param in parametros)
+                        {
+                            mCom.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
+                        }
+                    }
+
+                    using (SqlDataAdapter mDa = new SqlDataAdapter(mCom))
+                    {
+                        DataSet mDs = new DataSet();
+                        mDa.Fill(mDs);
+                        return mDs;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -31,19 +45,33 @@ namespace DAL
             finally
             {
                 if (mConexion.State != ConnectionState.Closed)
-                {
                     mConexion.Close();
-                }
             }
+
         }
 
-        public static int EjecutarNonQuery(string pCommand)
+        public int EjecutarNonQuery(string procedimiento, Dictionary<string, object> parametros = null)
         {
             try
             {
-                SqlCommand mCom = new SqlCommand(pCommand, mConexion);
+                SqlCommand comando = new SqlCommand(procedimiento, mConexion);
+
+                comando.CommandType = CommandType.StoredProcedure;
+
+                if (parametros != null)
+                {
+                    foreach (var param in parametros)
+                    {
+                        comando.Parameters.AddWithValue(
+                            param.Key,
+                            param.Value
+                        );
+                    }
+                }
+
                 mConexion.Open();
-                return mCom.ExecuteNonQuery();
+
+                return comando.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
