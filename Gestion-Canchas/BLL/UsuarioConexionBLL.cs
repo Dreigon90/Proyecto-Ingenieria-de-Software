@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using BE;
 using DAL;
+using Services;
 
 namespace BLL
 {
     public class UsuarioConexionBLL
     {
         UsuarioDAL usuarioDAL = new UsuarioDAL();
+        EncriptacionService Encriptacion = new EncriptacionService();
 
         public Usuario ValidarUsuario(string username, string password)
         {
@@ -18,14 +20,14 @@ namespace BLL
 
             if (usuario == null)
             {
-                throw new Exception("Usuario inexistente");
+                throw new Exception("Usuario y/o contraseña incorrectos");
             }
 
-            if (usuario.PasswordHash != password)
+            if (!Encriptacion.Verificar(password, usuario.PasswordHash))
             {
-                throw new Exception("Contraseña incorrecta");
+                throw new Exception("Usuario y/o contraseña incorrectos");
             }
-
+ 
             return usuario;
         }
      }

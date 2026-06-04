@@ -101,6 +101,6 @@ INSERT INTO Usuarios
 VALUES
 (
     'admin',
-    '1234'
+    '$2a$11$jNmcK1VAr4HMMFxST8ImvOaMtnLG8Rq78YzOSFI2.I/Rc41YEtT9S'
 )
 GO

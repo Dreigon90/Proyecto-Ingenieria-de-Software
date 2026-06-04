@@ -63,19 +63,12 @@ namespace DAL
                     usu.Username = row["username"].ToString();
                     usu.PasswordHash = row["password"].ToString();
                     usu.Id = Convert.ToInt32(row["id_usuario"]);
-                    //usuario.IntentosFallidos = Convert.ToInt32(row["IntentosFallidos"]);
-                    //bool bloqueado = Convert.ToBoolean(row["Bloqueado"]);
-                    //if (bloqueado)
-                    //{
-                    //    MessageBox.Show("Usuario bloqueado por intentos fallidos. Por favor contacte al administrador");
-                    //    return null;
-                    //}
-                    //permisoDAL.FillUserComponents(usu);
+
                     return usu;
                 }
                 else
                 {
-                    throw new Exception("Usuario no encontrado");
+                    throw new Exception("Usuario y/o contraseña incorrectos");
                 }
             }
             catch (Exception e)

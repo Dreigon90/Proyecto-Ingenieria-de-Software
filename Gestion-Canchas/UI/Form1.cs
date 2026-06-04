@@ -23,14 +23,18 @@ namespace UI
         public Form1()
         {
             InitializeComponent();
+            this.Size = new Size(900, 600);
             txtPassword.UseSystemPasswordChar = true;
             this.AcceptButton = btnLogin;
             EstilosUI.ConfigurarFormulario(this);
-
+            EstilosUI.ConfigurarPanel(panelLogin);
             EstilosUI.ConfigurarTextBox(txtUsuario);
             EstilosUI.ConfigurarTextBox(txtPassword);
 
             EstilosUI.ConfigurarBoton(btnLogin);
+
+            EstilosUI.ConfigurarTitulo(lblTitulo);
+            EstilosUI.ConfigurarTitulo(lblLogin);
 
             EstilosUI.ConfigurarLabel(lblUsuario);
             EstilosUI.ConfigurarLabel(lblPassword);

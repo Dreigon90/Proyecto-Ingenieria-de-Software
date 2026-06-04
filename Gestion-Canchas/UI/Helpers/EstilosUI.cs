@@ -52,5 +52,26 @@ namespace UI.Helpers
 
             lbl.Font = new Font("Segoe UI", 10);
         }
+
+        public static void ConfigurarTitulo(Label lbl)
+        {
+            lbl.ForeColor = Color.White;
+            lbl.BackColor = Color.FromArgb(180, 0, 0, 0);
+
+            lbl.Font = new Font("Segoe UI",14,FontStyle.Bold);
+
+            lbl.AutoSize = false;
+            lbl.Size = new Size(300, 50);
+            lbl.TextAlign = ContentAlignment.MiddleCenter;
+
+        }
+        public static void ConfigurarPanel(Panel panel)
+        {
+            panel.BackColor = Color.FromArgb(220, 0, 0, 0);
+            panel.Width = 400;
+            panel.Height = 350;
+
+            panel.BorderStyle = BorderStyle.None;
+        }
     }
 }
