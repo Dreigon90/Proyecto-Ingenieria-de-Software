@@ -13,7 +13,7 @@ namespace DAL
 
         DAO dAO = new DAO();
 
-        public void InsertarBitacora(Usuario usu, string mensaje)
+        public void InsertarBitacora(Usuario usu, string mensaje, string estado)
         {
             try
             {
@@ -23,7 +23,8 @@ namespace DAL
                 {
                     { "@idUsuario", usu.Id },
                     { "@mensaje", mensaje },
-                    { "@fecha", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") }
+                    { "@fecha", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") },
+                    { "@estado", estado }
                 };
                 dAO.EjecutarNonQuery(commandText, parametros);
             }

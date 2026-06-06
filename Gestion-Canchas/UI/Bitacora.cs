@@ -21,7 +21,7 @@ namespace UI
 
             ConfigurarVista();
 
-            bitacoraBLL.InsertarBitacora(SessionManagerBLL.GetInstance.Usuario, "Ingreso al módulo Bitácora");
+            bitacoraBLL.InsertarBitacora(SessionManagerBLL.GetInstance.Usuario, "Ingreso al módulo Bitácora", "INFO");
 
             CargarBitacora();
 

@@ -58,7 +58,7 @@ namespace UI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            bitacoraBLL.InsertarBitacora(SessionManagerBLL.GetInstance.Usuario, "Cierre de sesión");
+            bitacoraBLL.InsertarBitacora(SessionManagerBLL.GetInstance.Usuario, "Cierre de sesión", "INFO");
             
             SessionManagerBLL.Logout();
 

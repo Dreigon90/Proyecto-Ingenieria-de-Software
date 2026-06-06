@@ -13,9 +13,9 @@ namespace BLL
     {
         BitacoraDAL BitacoraDAL = new BitacoraDAL();
 
-        public void InsertarBitacora(Usuario usu, string mensaje)
+        public void InsertarBitacora(Usuario usu, string mensaje, string estado)
         {
-            BitacoraDAL.InsertarBitacora(usu, mensaje);
+            BitacoraDAL.InsertarBitacora(usu, mensaje, estado);
         }
         public DataTable ObtenerBitacora(DateTime? desde,DateTime? hasta)
         {

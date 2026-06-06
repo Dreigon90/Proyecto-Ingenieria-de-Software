@@ -52,7 +52,7 @@ namespace UI
 
                         SessionManagerBLL.Login(usu);
 
-                        bitacoraBLL.InsertarBitacora(SessionManagerBLL.GetInstance.Usuario,"Ingreso de usuario");
+                        bitacoraBLL.InsertarBitacora(SessionManagerBLL.GetInstance.Usuario,"Ingreso de usuario", "INFO");
 
                         Admin admin = new Admin();
                         admin.Show();
