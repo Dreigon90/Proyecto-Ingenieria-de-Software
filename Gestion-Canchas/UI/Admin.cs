@@ -74,8 +74,8 @@ namespace UI
         private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Bitacora form = new Bitacora();
-
-            form.ShowDialog();
+            form.MdiParent = this; // Vincula el form como hijo del contenedor
+            form.Show();
         }
     }
 }

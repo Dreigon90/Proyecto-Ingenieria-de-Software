@@ -68,35 +68,35 @@
             this.bitacoraToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuGestionUsuarios
             // 
             this.menuGestionUsuarios.Name = "menuGestionUsuarios";
-            this.menuGestionUsuarios.Size = new System.Drawing.Size(146, 24);
+            this.menuGestionUsuarios.Size = new System.Drawing.Size(146, 26);
             this.menuGestionUsuarios.Text = "Gestionar Usuarios";
             this.menuGestionUsuarios.Click += new System.EventHandler(this.menuGestionUsuarios_Click);
             // 
             // canchasToolStripMenuItem
             // 
             this.canchasToolStripMenuItem.Name = "canchasToolStripMenuItem";
-            this.canchasToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.canchasToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
             this.canchasToolStripMenuItem.Text = "Canchas";
             this.canchasToolStripMenuItem.Click += new System.EventHandler(this.canchasToolStripMenuItem_Click);
             // 
             // reservasToolStripMenuItem
             // 
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
-            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
             this.reservasToolStripMenuItem.Text = "Reservas";
             this.reservasToolStripMenuItem.Click += new System.EventHandler(this.reservasToolStripMenuItem_Click);
             // 
             // bitacoraToolStripMenuItem
             // 
             this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
-            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
             this.bitacoraToolStripMenuItem.Text = "Bitacora";
             this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
@@ -108,6 +108,7 @@
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblBienvenida);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Admin";
             this.Text = "Admin";
