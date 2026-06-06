@@ -73,5 +73,53 @@ namespace UI.Helpers
 
             panel.BorderStyle = BorderStyle.None;
         }
+
+        public static void ConfigurarMenu(MenuStrip menu)
+        {
+            menu.BackColor = Color.FromArgb(30, 30, 30);
+
+            menu.ForeColor = Color.White;
+
+            menu.Font = new Font("Segoe UI",10,FontStyle.Bold);
+
+            menu.RenderMode = ToolStripRenderMode.System;
+        }
+        public static void ConfigurarBotonLogout(Button btn)
+        {
+            btn.FlatStyle = FlatStyle.Flat;
+
+            btn.FlatAppearance.BorderSize = 0;
+
+            btn.BackColor = Color.FromArgb(192, 57, 43);
+
+            btn.ForeColor = Color.White;
+
+            btn.Font = new Font("Segoe UI",9,FontStyle.Bold);
+
+            btn.Cursor = Cursors.Hand;
+
+            btn.Width = 120;
+
+            btn.Height = 35;
+        }
+        public static void ConfigurarTituloBienvenida(Label lbl)
+        {
+            lbl.ForeColor = Color.White;
+
+            lbl.Font = new Font("Segoe UI",18,FontStyle.Bold);
+
+            lbl.AutoSize = true;
+        }
+        public static void ConfigurarCheckBox(CheckBox chk)
+        {
+            chk.ForeColor = Color.White;
+
+            chk.Font = new Font("Segoe UI",10,FontStyle.Bold);
+
+            chk.BackColor = Color.Transparent;
+
+            chk.Cursor = Cursors.Hand;
+        }
+
     }
 }

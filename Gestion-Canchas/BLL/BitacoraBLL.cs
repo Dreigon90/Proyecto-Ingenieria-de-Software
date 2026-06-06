@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,10 @@ namespace BLL
         public void InsertarBitacora(Usuario usu, string mensaje)
         {
             BitacoraDAL.InsertarBitacora(usu, mensaje);
+        }
+        public DataTable ObtenerBitacora(DateTime? desde,DateTime? hasta)
+        {
+            return BitacoraDAL.ObtenerBitacora(desde,hasta);
         }
 
     }

@@ -49,13 +49,13 @@ namespace UI
                     Usuario usu = usuarioConexionBLL.ValidarUsuario(usuario, password);
 
                     if (usu != null) {
-                        MessageBox.Show("Bienvenido");
 
                         SessionManagerBLL.Login(usu);
 
                         bitacoraBLL.InsertarBitacora(SessionManagerBLL.GetInstance.Usuario,"Ingreso de usuario");
 
-                        //new Admin(this).Show();
+                        Admin admin = new Admin();
+                        admin.Show();
                         this.Hide();
                     }
                 }

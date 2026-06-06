@@ -1,6 +1,7 @@
 ﻿using BE;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,26 @@ namespace DAL
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+        public DataTable ObtenerBitacora(DateTime? fechaDesde,DateTime? fechaHasta)
+        {
+            try
+            {
+                string commandText = "ObtenerBitacora";
+
+                var parametros = new Dictionary<string, object> {
+                    { "@fechaDesde", fechaDesde.HasValue ? (object) fechaDesde.Value: DBNull.Value},
+                    { "@fechaHasta", fechaHasta.HasValue ? (object) fechaHasta.Value: DBNull.Value}
+                };
+
+                DataSet ds = dAO.EjecutarDataSet(commandText,parametros);
+
+                return ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 

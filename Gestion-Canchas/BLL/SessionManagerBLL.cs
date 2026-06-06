@@ -21,6 +21,7 @@ namespace BLL
         private static SessionManagerBLL _session;
 
         private static Object _lock = new object();
+        private SessionManagerBLL() { }
 
         public static SessionManagerBLL GetInstance
         {
