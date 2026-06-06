@@ -93,6 +93,33 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE ObtenerBitacora
+(
+    @fechaDesde DATETIME = NULL,
+    @fechaHasta DATETIME = NULL
+)
+AS
+BEGIN
+
+    SELECT
+        B.id_bitacora,
+        U.username,
+        B.mensaje,
+        B.fecha
+    FROM Bitacora B
+    INNER JOIN Usuarios U
+        ON B.id_usuario = U.id_usuario
+    WHERE
+        (@fechaDesde IS NULL
+            OR B.fecha >= @fechaDesde)
+    AND
+        (@fechaHasta IS NULL
+            OR B.fecha <= @fechaHasta)
+    ORDER BY B.fecha DESC
+
+END
+GO
+
 INSERT INTO Usuarios
 (
     username,
