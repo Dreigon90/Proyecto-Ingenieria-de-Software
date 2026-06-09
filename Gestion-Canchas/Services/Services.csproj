@@ -57,7 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="SessionManagerService.cs" />
     <Compile Include="EncriptacionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -51,6 +51,7 @@ Environment files
 
 .env
 .env.*
+App.config
 
 =========================
 Publish output

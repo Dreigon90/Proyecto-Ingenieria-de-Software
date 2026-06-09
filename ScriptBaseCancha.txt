@@ -50,7 +50,8 @@ CREATE PROCEDURE InsertarBitacora
 (
     @idUsuario INT,
     @mensaje VARCHAR(255),
-    @fecha DATETIME
+    @fecha DATETIME,
+    @estado VARCHAR(50)	
 )
 AS
 BEGIN
@@ -59,13 +60,15 @@ BEGIN
     (
         id_usuario,
         mensaje,
-        fecha
+        fecha,
+        estado
     )
     VALUES
     (
         @idUsuario,
         @mensaje,
         @fecha
+        @estado
     )
 
 END
@@ -105,7 +108,8 @@ BEGIN
         B.id_bitacora,
         U.username,
         B.mensaje,
-        B.fecha
+        B.fecha,
+	B.estado
     FROM Bitacora B
     INNER JOIN Usuarios U
         ON B.id_usuario = U.id_usuario

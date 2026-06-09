@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace UI
 
             ConfigurarVista();
 
-            bitacoraBLL.InsertarBitacora(SessionManagerBLL.GetInstance.Usuario, "Ingreso al módulo Bitácora", "INFO");
+            bitacoraBLL.InsertarBitacora(SessionManagerService.GetInstance.Usuario, "Ingreso al módulo Bitácora", "INFO");
 
             CargarBitacora();
 

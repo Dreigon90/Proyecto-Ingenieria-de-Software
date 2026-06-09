@@ -37,7 +37,7 @@ namespace UI
 
             EstilosUI.ConfigurarBoton(btnLogout);
 
-            Usuario usuario = SessionManagerBLL.GetInstance.Usuario;
+            Usuario usuario = SessionManagerService.GetInstance.Usuario;
 
             lblBienvenida.Text = $"Bienvenido {usuario.Username}";
         }
@@ -58,9 +58,9 @@ namespace UI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            bitacoraBLL.InsertarBitacora(SessionManagerBLL.GetInstance.Usuario, "Cierre de sesión", "INFO");
+            bitacoraBLL.InsertarBitacora(SessionManagerService.GetInstance.Usuario, "Cierre de sesión", "INFO");
             
-            SessionManagerBLL.Logout();
+            SessionManagerService.Logout();
 
             MessageBox.Show("Sesión cerrada");
 

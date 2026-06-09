@@ -4,33 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
-using DAL;
-using Services;
 
-namespace BLL
+namespace Services
 {
-    public class SessionManagerBLL
+    public class SessionManagerService
     {
-
         private Usuario usuario;
         public Usuario Usuario
         {
             get { return usuario; }
             set { usuario = value; }
         }
-        private static SessionManagerBLL _session;
 
+        private static SessionManagerService _session;
         private static Object _lock = new object();
-        private SessionManagerBLL() { }
+        private SessionManagerService() { }
 
-        public static SessionManagerBLL GetInstance
+        public static SessionManagerService GetInstance
         {
             get
             {
                 lock (_lock)
                 {
                     if (_session == null)
-                        _session = new SessionManagerBLL();
+                        _session = new SessionManagerService();
                 }
 
                 return _session;
@@ -48,7 +45,6 @@ namespace BLL
                 throw new Exception("Ya hay una sesión iniciada");
             }
         }
-
         public static void Logout()
         {
             var session = GetInstance;

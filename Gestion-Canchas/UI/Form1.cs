@@ -50,9 +50,9 @@ namespace UI
 
                     if (usu != null) {
 
-                        SessionManagerBLL.Login(usu);
+                        SessionManagerService.Login(usu);
 
-                        bitacoraBLL.InsertarBitacora(SessionManagerBLL.GetInstance.Usuario,"Ingreso de usuario", "INFO");
+                        bitacoraBLL.InsertarBitacora(SessionManagerService.GetInstance.Usuario,"Ingreso de usuario", "INFO");
 
                         Admin admin = new Admin();
                         admin.Show();
