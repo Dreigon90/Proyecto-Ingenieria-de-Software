@@ -11,12 +11,14 @@ using BE;
 using BLL;
 using Services;
 using UI.Helpers;
+using FontAwesome.Sharp;
 
 namespace UI
 {
     public partial class Admin : Form
     {
         BitacoraBLL bitacoraBLL = new BitacoraBLL();
+
         public Admin()
         {
             InitializeComponent();
@@ -25,26 +27,37 @@ namespace UI
         private void ConfigurarVista()
         {
             EstilosUI.ConfigurarFormulario(this);
-            EstilosUI.ConfigurarMenu(menuStrip1);
-            EstilosUI.ConfigurarBotonLogout(btnLogout);
-            EstilosUI.ConfigurarTituloBienvenida(lblBienvenida);            
+            EstilosUI.ConfigurarMenu(menuStrip1);         
 
             this.Size = new Size(1000, 700);
 
             this.BackgroundImageLayout = ImageLayout.Stretch;
-
-            EstilosUI.ConfigurarLabel(lblBienvenida);
-
-            EstilosUI.ConfigurarBoton(btnLogout);
-
             Usuario usuario = SessionManagerService.GetInstance.Usuario;
 
-            lblBienvenida.Text = $"Bienvenido {usuario.Username}";
+            ToolStripMenuItem usuarioMenu = new ToolStripMenuItem();
+            usuarioMenu.Text = $"{usuario.Username}";
+            //usuarioMenu.Image = Properties.Resources.user;
+            usuarioMenu.Alignment = ToolStripItemAlignment.Right;
+
+            ToolStripMenuItem logout = new ToolStripMenuItem("Cerrar sesión");
+            //logout.Image = Properties.Resources.logout;
+            logout.Click += btnLogout_Click;
+
+            usuarioMenu.DropDownItems.Add(logout);
+            menuStrip1.Items.Add(usuarioMenu);
+
+
         }
 
         private void menuGestionUsuarios_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Pantalla para gestionar usuarios.");
+            GestionUsuarios form = new GestionUsuarios();
+
+            form.MdiParent = this;
+
+            form.WindowState = FormWindowState.Maximized;
+
+            form.Show();
         }
         private void canchasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -76,6 +89,13 @@ namespace UI
             Bitacora form = new Bitacora();
             form.MdiParent = this; // Vincula el form como hijo del contenedor
             form.Show();
+        }
+
+        private void auditoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Auditoria auditoria = new Auditoria(this);
+            auditoria.MdiParent = this; // Vincula el form como hijo del contenedor
+            auditoria.Show();
         }
     }
 }

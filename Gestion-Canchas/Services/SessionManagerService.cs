@@ -50,7 +50,7 @@ namespace Services
             var session = GetInstance;
             if (session.usuario != null)
             {
-                session = null;
+                session.usuario = null;
             }
             else
             {

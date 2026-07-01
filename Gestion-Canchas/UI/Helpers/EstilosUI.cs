@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using FontAwesome.Sharp;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace UI.Helpers
@@ -42,6 +43,23 @@ namespace UI.Helpers
             btn.Font = new Font("Segoe UI", 11, FontStyle.Bold);
 
             btn.Height = 40;
+
+            btn.Cursor = Cursors.Hand;
+        }
+        public static void ConfigurarBotonModificar(Button btn)
+        {
+            btn.FlatStyle = FlatStyle.Flat;
+
+            btn.FlatAppearance.BorderSize = 0;
+
+            btn.BackColor = Color.FromArgb(0, 120, 215);
+
+            btn.ForeColor = Color.White;
+
+            btn.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+
+            btn.Height = 30;
+            btn.Width = 90;
 
             btn.Cursor = Cursors.Hand;
         }
@@ -119,6 +137,33 @@ namespace UI.Helpers
             chk.BackColor = Color.Transparent;
 
             chk.Cursor = Cursors.Hand;
+        }
+        public static void AplicarTituloBlanco(GroupBox groupBox)
+        {
+            groupBox.Paint += (sender, e) =>
+            {
+                GroupBox gb = (GroupBox)sender;
+
+                // Fondo del groupbox (opcional)
+                e.Graphics.Clear(gb.BackColor);
+
+                // Dibujar borde
+                ControlPaint.DrawBorder(
+                    e.Graphics,
+                    gb.ClientRectangle,
+                    Color.Gray,
+                    ButtonBorderStyle.Solid
+                );
+
+                // Texto del título
+                TextRenderer.DrawText(
+                    e.Graphics,
+                    gb.Text,
+                    gb.Font,
+                    new Point(10, 0),
+                    Color.White
+                );
+            };
         }
 
     }

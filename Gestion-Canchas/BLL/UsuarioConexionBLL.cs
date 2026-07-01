@@ -13,6 +13,8 @@ namespace BLL
     {
         UsuarioDAL usuarioDAL = new UsuarioDAL();
         EncriptacionService Encriptacion = new EncriptacionService();
+        private AuditoriaBLL auditoriaBLL = new AuditoriaBLL();
+        BitacoraBLL bitacoraBLL = new BitacoraBLL();
 
         public Usuario ValidarUsuario(string username, string password)
         {
@@ -30,7 +32,43 @@ namespace BLL
  
             return usuario;
         }
-     }
+
+        public List<Usuario> ObtenerUsuarios()
+        {
+            return usuarioDAL.ObtenerUsuarios();
+        }
+
+        public void ModificarUsuario(int id,string username,string password,string email,string telefono,string modificadoPor)
+        {
+            Usuario usuario = usuarioDAL.ObtenerUsuarioPorId(id);
+
+            if (usuario == null)
+                throw new Exception("Usuario no encontrado.");
+
+            // Si cambió el email, guardar el estado anterior
+            if (usuario.Email != email)
+            {
+                auditoriaBLL.GuardarEstado(usuario, email, modificadoPor, "Modificación Email");
+            }
+
+            usuario.Username = username;
+            usuario.Email = email;
+            usuario.Telefono = telefono;
+
+            if (!string.IsNullOrWhiteSpace(password))
+            {
+                usuario.PasswordHash = Encriptacion.Hash(password);
+            }
+
+            usuarioDAL.Actualizar(usuario);
+
+            bitacoraBLL.InsertarBitacora(
+                SessionManagerService.GetInstance.Usuario,
+                $"Modificó el usuario '{username}'",
+                "INFO");
+        }
+
+    }
 
     
 }

@@ -64,7 +64,7 @@ namespace DAL
                     {
                         comando.Parameters.AddWithValue(
                             param.Key,
-                            param.Value
+                            param.Value ?? DBNull.Value
                         );
                     }
                 }
@@ -73,9 +73,9 @@ namespace DAL
 
                 return comando.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
             finally
             {

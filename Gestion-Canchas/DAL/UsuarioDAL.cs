@@ -62,6 +62,8 @@ namespace DAL
                     Usuario usu = new Usuario();
                     usu.Username = row["username"].ToString();
                     usu.PasswordHash = row["password"].ToString();
+                    usu.Email = row["Email"].ToString();
+                    usu.Telefono = row["Telefono"].ToString();
                     usu.Id = Convert.ToInt32(row["id_usuario"]);
 
                     return usu;
@@ -74,6 +76,93 @@ namespace DAL
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+
+        public List<Usuario> ObtenerUsuarios()
+        {
+            try
+            {
+                List<Usuario> listUsuarios = new List<Usuario>();
+                string commandText = "ObtenerUsuarios";
+                DataSet ds = dAO.EjecutarDataSet(commandText);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        Usuario usu = new Usuario();
+                        usu.Username = row["username"].ToString();
+                        usu.Id = Convert.ToInt32(row["id_usuario"]);
+                        usu.PasswordHash = Convert.ToString(row["password"]);
+                        usu.Email = row["email"].ToString();
+                        usu.Telefono = row["telefono"].ToString();
+                        listUsuarios.Add(usu);
+                    }
+                }
+                return listUsuarios;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public void Actualizar(Usuario usuario)
+        {
+            string commandText = "ActualizarUsuario";
+
+            var parametros = new Dictionary<string, object>
+            {
+                {"@Id", usuario.Id},
+                {"@Username", usuario.Username},
+                {"@PasswordHash", usuario.PasswordHash},
+                {"@Email", usuario.Email},
+                {"@Telefono", usuario.Telefono}
+            };
+
+            dAO.EjecutarNonQuery(commandText, parametros);
+        }
+        public Usuario ObtenerUsuarioPorId(int id)
+        {
+            string commandText = "Usuario_ObtenerPorId";
+
+            var parametros = new Dictionary<string, object>
+            {
+                { "@Id", id }
+            };
+
+            DataSet ds = dAO.EjecutarDataSet(commandText, parametros);
+
+            if (ds.Tables[0].Rows.Count == 0)
+                return null;
+
+            DataRow row = ds.Tables[0].Rows[0];
+
+            return new Usuario
+            {
+                Id = Convert.ToInt32(row["id_usuario"]),
+                Username = row["username"].ToString(),
+                PasswordHash = row["password"].ToString(),
+                Email = row["email"].ToString(),
+                Telefono = row["telefono"].ToString()
+            };
+        }
+        public void RestaurarEmail(int idUsuario, string email)
+        {
+            try
+            {
+                string commandText = "RestaurarEmail";
+
+                var parametros = new Dictionary<string, object>
+                {
+                    {"@IdUsuario", idUsuario},
+                    {"@Email", email}
+                };
+
+                dAO.EjecutarNonQuery(commandText, parametros);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
