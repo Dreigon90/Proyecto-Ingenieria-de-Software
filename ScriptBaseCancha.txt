@@ -39,7 +39,9 @@ BEGIN
     SELECT
         id_usuario,
         username,
-        password
+        password,
+	email,
+	telefono
     FROM Usuarios
     WHERE username = @nombre
 
@@ -134,4 +136,132 @@ VALUES
     'admin',
     '$2a$11$jNmcK1VAr4HMMFxST8ImvOaMtnLG8Rq78YzOSFI2.I/Rc41YEtT9S'
 )
+GO
+
+CREATE PROCEDURE ObtenerUsuarios
+AS
+BEGIN
+	SELECT *
+	FROM Usuarios;
+END
+GO
+
+CREATE PROCEDURE ActualizarUsuario
+(
+    @Id INT,
+    @Username VARCHAR(100),
+    @PasswordHash VARCHAR(200),
+    @Email VARCHAR(100),
+    @Telefono VARCHAR(30)
+)
+AS
+BEGIN
+
+    UPDATE Usuarios
+    SET
+        username = @Username,
+        password = @PasswordHash,
+	Email=@Email,
+	Telefono=@Telefono
+    WHERE id_usuario = @Id;
+
+END
+GO
+
+CREATE TABLE AuditoriaUsuarios
+(
+    IdAuditoria INT IDENTITY(1,1) PRIMARY KEY,
+
+    UsuarioId INT NOT NULL,
+
+    Username VARCHAR(100) NOT NULL,
+
+    PasswordHash VARCHAR(255) NOT NULL,
+
+    Fecha DATETIME NOT NULL,
+
+    ModificadoPor VARCHAR(100) NOT NULL,
+
+    Accion VARCHAR(50) NOT NULL,
+
+    CONSTRAINT FK_AuditoriaUsuarios_Usuarios
+        FOREIGN KEY (UsuarioId)
+        REFERENCES Usuarios(id_usuario)
+);
+GO
+
+CREATE PROCEDURE [dbo].[Auditoria_ObtenerHistorial]
+    @UsuarioId INT
+AS
+BEGIN
+    SELECT * FROM AuditoriaUsuarios
+    WHERE UsuarioId = @UsuarioId
+    ORDER BY Fecha DESC
+END
+GO
+
+CREATE PROCEDURE [dbo].[Auditoria_ObtenerPorId]
+    @IdAuditoria INT
+AS
+BEGIN
+    SELECT * FROM AuditoriaUsuarios WHERE IdAuditoria = @IdAuditoria
+END
+GO
+
+CREATE PROCEDURE [dbo].[Auditoria_Insertar]
+    @UsuarioId INT,
+    @EmailAnterior VARCHAR(100),
+    @EmailActual VARCHAR(100),
+    @Fecha DATETIME,
+    @ModificadoPor VARCHAR(50),
+    @Accion VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO AuditoriaUsuarios 
+    (UsuarioId, EmailAnterior, EmailActual, Fecha, ModificadoPor, Accion)
+    VALUES (@UsuarioId, @EmailAnterior, , @EmailActual, , @Fecha, @ModificadoPor, @Accion)
+END
+GO
+
+USE [GestionCanchas]
+GO
+ALTER TABLE Usuarios
+ADD Telefono VARCHAR(30),
+    Email VARCHAR(150);
+GO
+
+CREATE OR ALTER PROCEDURE RestaurarEmail
+
+@IdUsuario INT,
+@Email VARCHAR(100)
+
+AS
+BEGIN
+
+UPDATE Usuarios
+
+SET Email=@Email
+
+WHERE id_usuario=@IdUsuario
+
+END
+GO
+
+CREATE PROCEDURE [dbo].[Usuario_ObtenerPorId]
+(
+    @Id INT
+)
+AS
+BEGIN
+
+    SELECT
+        id_usuario,
+        username,
+        password,
+	email,
+	telefono
+    FROM Usuarios
+    WHERE id_usuario = @Id;
+
+END
 GO
