@@ -33,14 +33,18 @@ namespace UI
 
             this.BackgroundImageLayout = ImageLayout.Stretch;
             Usuario usuario = SessionManagerService.GetInstance.Usuario;
-
-            ToolStripMenuItem usuarioMenu = new ToolStripMenuItem();
-            usuarioMenu.Text = $"{usuario.Username}";
-            //usuarioMenu.Image = Properties.Resources.user;
+            IconMenuItem usuarioMenu = new IconMenuItem();
+            usuarioMenu.Text = usuario.Username;
+            usuarioMenu.IconChar = IconChar.CircleUser;
+            usuarioMenu.IconColor = Color.White;
+            usuarioMenu.IconFont = IconFont.Auto;
             usuarioMenu.Alignment = ToolStripItemAlignment.Right;
 
-            ToolStripMenuItem logout = new ToolStripMenuItem("Cerrar sesión");
-            //logout.Image = Properties.Resources.logout;
+            IconMenuItem logout = new IconMenuItem();
+            logout.Text = "Cerrar sesión";
+            logout.IconChar = IconChar.RightFromBracket;
+            logout.IconColor = Color.Black;
+            logout.IconFont = IconFont.Auto;
             logout.Click += btnLogout_Click;
 
             usuarioMenu.DropDownItems.Add(logout);
