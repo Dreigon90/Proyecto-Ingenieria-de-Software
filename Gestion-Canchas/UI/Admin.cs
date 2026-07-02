@@ -12,6 +12,7 @@ using BLL;
 using Services;
 using UI.Helpers;
 using FontAwesome.Sharp;
+using UI.GestionPermisos;
 
 namespace UI
 {
@@ -100,6 +101,20 @@ namespace UI
             Auditoria auditoria = new Auditoria(this);
             auditoria.MdiParent = this; // Vincula el form como hijo del contenedor
             auditoria.Show();
+        }
+
+        private void permisosYFamiliasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPermisosFamilias formPermisosFamilias = new FormPermisosFamilias();
+            formPermisosFamilias.Show();
+            this.Hide();
+        }
+
+        private void rolesYUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUsuariosRoles formUsuariosRoles = new FormUsuariosRoles();
+            formUsuariosRoles.Show();
+            this.Hide();
         }
     }
 }

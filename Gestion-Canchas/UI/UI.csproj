@@ -77,6 +77,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionPermisos\FormPermisosFamilias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionPermisos\FormPermisosFamilias.Designer.cs">
+      <DependentUpon>FormPermisosFamilias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionPermisos\FormUsuariosRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionPermisos\FormUsuariosRoles.Designer.cs">
+      <DependentUpon>FormUsuariosRoles.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionPermisos\FormPermisosFamilias.resx">
+      <DependentUpon>FormPermisosFamilias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionPermisos\FormUsuariosRoles.resx">
+      <DependentUpon>FormUsuariosRoles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionUsuarios.resx">
       <DependentUpon>GestionUsuarios.cs</DependentUpon>

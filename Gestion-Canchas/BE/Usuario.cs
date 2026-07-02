@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BE.Composite;
 
 namespace BE
 {
@@ -13,6 +14,27 @@ namespace BE
         public string Email { get; set; }
         public string Telefono { get; set; }
         public int Id { get; set; }
+
+
+
+        private List<Componente> _permisos;
+
+        public List<Componente> Permisos
+        {
+            get { return _permisos; }
+        }
+
+        public Usuario()
+        {
+            _permisos = new List<Componente>();
+        }
+
+        public override string ToString()
+        {
+            return Username;
+        }
+
+
 
         public UsuarioMemento CrearMemento(string emailNuevo, string emailActual, string modificadoPor, string accion)
         {

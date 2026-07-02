@@ -85,5 +85,39 @@ namespace DAL
                 }
             }
         }
+
+
+
+
+        public int EjecutarScalar(string pCommandText, Dictionary<string, object> parametros = null)
+        {
+            int valorDevuelto;
+            try
+            {
+                SqlCommand mCom = new SqlCommand(pCommandText, mConexion);
+                mCom.CommandType = System.Data.CommandType.StoredProcedure;
+                if (parametros != null)
+                {
+                    foreach (var param in parametros)
+                    {
+                        mCom.Parameters.AddWithValue(param.Key, param.Value);
+                    }
+                }
+                mConexion.Open();
+                valorDevuelto = int.Parse(mCom.ExecuteScalar().ToString());
+                return valorDevuelto;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (mConexion.State != ConnectionState.Closed)
+                    mConexion.Close();
+            }
+        }
+
+
     }
 }
