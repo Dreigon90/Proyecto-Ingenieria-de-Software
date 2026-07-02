@@ -265,3 +265,61 @@ BEGIN
 
 END
 GO
+
+
+
+USE GestionCanchas;
+GO
+
+/*=====================================================
+  TABLA: Permiso
+=====================================================*/
+CREATE TABLE Permiso
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre NVARCHAR(100) NOT NULL,
+    Tipo NVARCHAR(20) NOT NULL
+);
+GO
+
+/*=====================================================
+  TABLA: Permiso_Permiso
+=====================================================*/
+CREATE TABLE Permiso_Permiso
+(
+    IdPermisoPadre INT NOT NULL,
+    IdPermisoHijo INT NOT NULL,
+
+    CONSTRAINT PK_Permiso_Permiso
+        PRIMARY KEY (IdPermisoPadre, IdPermisoHijo),
+
+    CONSTRAINT FK_PP_Padre
+        FOREIGN KEY (IdPermisoPadre)
+        REFERENCES Permiso(Id),
+
+    CONSTRAINT FK_PP_Hijo
+        FOREIGN KEY (IdPermisoHijo)
+        REFERENCES Permiso(Id)
+);
+GO
+
+/*=====================================================
+  TABLA: Usuario_Permiso
+=====================================================*/
+CREATE TABLE Usuario_Permiso
+(
+    IdUsuario INT NOT NULL,
+    IdPermiso INT NOT NULL,
+
+    CONSTRAINT PK_Usuario_Permiso
+        PRIMARY KEY (IdUsuario, IdPermiso),
+
+    CONSTRAINT FK_UP_Usuario
+        FOREIGN KEY (IdUsuario)
+        REFERENCES Usuario(id_usuario),
+
+    CONSTRAINT FK_UP_Permiso
+        FOREIGN KEY (IdPermiso)
+        REFERENCES Permiso(Id)
+);
+GO
