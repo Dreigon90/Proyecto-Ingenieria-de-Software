@@ -42,12 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bitacora.cs" />
-	  <Compile Include="Idioma.cs" />
-	  <Compile Include="Traduccion.cs" />
-	  <Compile Include="Composite\Componente.cs" />
-	  <Compile Include="Composite\Familia.cs" />
-	  <Compile Include="Composite\Permiso.cs" />
-	  <Compile Include="Composite\TipoPermiso.cs" />
+	<Compile Include="Idioma.cs" />
+	<Compile Include="Traduccion.cs" />
+	<Compile Include="Composite\Componente.cs" />
+	<Compile Include="Composite\Familia.cs" />
+	<Compile Include="Composite\Permiso.cs" />
+	<Compile Include="Composite\TipoPermiso.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioMemento.cs" />

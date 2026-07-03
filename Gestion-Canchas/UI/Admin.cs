@@ -57,16 +57,6 @@ namespace UI
 
         }
 
-        private void menuGestionUsuarios_Click(object sender, EventArgs e)
-        {
-            GestionUsuarios form = new GestionUsuarios();
-
-            form.MdiParent = this;
-
-            form.WindowState = FormWindowState.Maximized;
-
-            form.Show();
-        }
         private void canchasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Pantalla para gestionar canchas.");
@@ -129,6 +119,17 @@ namespace UI
             FormUsuariosRoles formUsuariosRoles = new FormUsuariosRoles(this);
             formUsuariosRoles.Show();
             this.Hide();
+        }
+
+        private void modificarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GestionUsuarios form = new GestionUsuarios();
+
+            form.MdiParent = this;
+
+            form.WindowState = FormWindowState.Maximized;
+
+            form.Show();
         }
     }
 }
