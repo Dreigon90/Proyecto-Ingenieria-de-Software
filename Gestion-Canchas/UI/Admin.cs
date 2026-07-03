@@ -15,14 +15,15 @@ using FontAwesome.Sharp;
 
 namespace UI
 {
-    public partial class Admin : Form
+    public partial class Admin : Form, IObserverIdioma
     {
         BitacoraBLL bitacoraBLL = new BitacoraBLL();
-
+        private Traductor traductor = new Traductor();
         public Admin()
         {
             InitializeComponent();
             ConfigurarVista();
+            GestorIdiomaService.Instancia.Agregar(this);
         }
         private void ConfigurarVista()
         {
@@ -46,10 +47,12 @@ namespace UI
             logout.IconColor = Color.Black;
             logout.IconFont = IconFont.Auto;
             logout.Click += btnLogout_Click;
+            logout.Tag = "menuLogout";
 
             usuarioMenu.DropDownItems.Add(logout);
             menuStrip1.Items.Add(usuarioMenu);
 
+            GestorIdiomaService.Instancia.Agregar(this);
 
         }
 
@@ -79,7 +82,7 @@ namespace UI
             
             SessionManagerService.Logout();
 
-            MessageBox.Show("Sesión cerrada");
+            //MessageBox.Show("Sesión cerrada");
 
             Form1 login = new Form1();
 
@@ -100,6 +103,17 @@ namespace UI
             Auditoria auditoria = new Auditoria(this);
             auditoria.MdiParent = this; // Vincula el form como hijo del contenedor
             auditoria.Show();
+        }
+
+        public void Actualizar(Idioma idioma)
+        {
+            traductor.TraducirFormulario(this, idioma);
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            GestorIdiomaService.Instancia.Quitar(this);
+
+            base.OnFormClosed(e);
         }
     }
 }

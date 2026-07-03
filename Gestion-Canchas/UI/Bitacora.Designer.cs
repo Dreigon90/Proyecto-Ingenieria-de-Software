@@ -45,6 +45,7 @@
             this.chkDesde.Name = "chkDesde";
             this.chkDesde.Size = new System.Drawing.Size(112, 20);
             this.chkDesde.TabIndex = 11;
+            this.chkDesde.Tag = "chkDesde";
             this.chkDesde.Text = "Fecha desde:";
             this.chkDesde.UseVisualStyleBackColor = true;
             this.chkDesde.CheckedChanged += new System.EventHandler(this.chkDesde_CheckedChanged);
@@ -56,6 +57,7 @@
             this.chkHasta.Name = "chkHasta";
             this.chkHasta.Size = new System.Drawing.Size(106, 20);
             this.chkHasta.TabIndex = 12;
+            this.chkHasta.Tag = "chkHasta";
             this.chkHasta.Text = "Fecha hasta:";
             this.chkHasta.UseVisualStyleBackColor = true;
             this.chkHasta.CheckedChanged += new System.EventHandler(this.chkHasta_CheckedChanged);
@@ -80,6 +82,7 @@
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(109, 49);
             this.btnFiltrar.TabIndex = 15;
+            this.btnFiltrar.Tag = "btnFiltrar";
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
@@ -90,6 +93,7 @@
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(109, 28);
             this.btnVolver.TabIndex = 16;
+            this.btnVolver.Tag = "btnVolver";
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);

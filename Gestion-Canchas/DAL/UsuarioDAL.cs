@@ -65,6 +65,7 @@ namespace DAL
                     usu.Email = row["Email"].ToString();
                     usu.Telefono = row["Telefono"].ToString();
                     usu.Id = Convert.ToInt32(row["id_usuario"]);
+                    usu.IdIdioma = Convert.ToInt32(row["IdIdioma"]);
 
                     return usu;
                 }
@@ -96,6 +97,7 @@ namespace DAL
                         usu.PasswordHash = Convert.ToString(row["password"]);
                         usu.Email = row["email"].ToString();
                         usu.Telefono = row["telefono"].ToString();
+                        usu.IdIdioma = Convert.ToInt32(row["IdIdioma"]);
                         listUsuarios.Add(usu);
                     }
                 }
@@ -164,6 +166,18 @@ namespace DAL
             {
                 throw ex;
             }
+        }
+        public void ActualizarIdioma(int idUsuario, int idIdioma)
+        {
+            string commandText = "Usuario_ActualizarIdioma";
+
+            var parametros = new Dictionary<string, object>()
+            {
+                {"@IdUsuario", idUsuario},
+                {"@IdIdioma", idIdioma}
+            };
+
+            dAO.EjecutarNonQuery(commandText, parametros);
         }
 
     }

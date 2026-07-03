@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,10 @@ using UI.Helpers;
 
 namespace UI
 {
-    public partial class Bitacora : Form
+    public partial class Bitacora : Form, IObserverIdioma
     {
         BitacoraBLL bitacoraBLL = new BitacoraBLL();
+        private Traductor traductor = new Traductor();
         public Bitacora()
         {
             InitializeComponent();
@@ -27,7 +29,8 @@ namespace UI
             CargarBitacora();
 
             ConfigurarFiltros();
-       
+            GestorIdiomaService.Instancia.Agregar(this);
+
         }
         private void ConfigurarVista()
         {
@@ -95,6 +98,16 @@ namespace UI
         private void chkHasta_CheckedChanged(object sender, EventArgs e)
         {
             dtpHasta.Enabled = chkHasta.Checked;
+        }
+        public void Actualizar(Idioma idioma)
+        {
+            traductor.TraducirFormulario(this, idioma);
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            GestorIdiomaService.Instancia.Quitar(this);
+
+            base.OnFormClosed(e);
         }
     }
 }

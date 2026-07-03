@@ -15,12 +15,13 @@ using UI.Helpers;
 
 namespace UI
 {
-    public partial class Auditoria : Form
+    public partial class Auditoria : Form, IObserverIdioma
     {
         Admin admin;
         UsuarioConexionBLL conexion = new UsuarioConexionBLL();
         AuditoriaBLL audit = new AuditoriaBLL();
         BitacoraBLL bitacoraBLL = new BitacoraBLL();
+        private Traductor traductor = new Traductor();
         public Auditoria(Admin admin)
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace UI
 
             this.admin = admin;
             bitacoraBLL.InsertarBitacora(SessionManagerService.GetInstance.Usuario, "Ingreso al módulo de Auditoría", "INFO");
-
+            GestorIdiomaService.Instancia.Agregar(this);
 
         }
         private void ConfigurarVista()
@@ -112,6 +113,16 @@ namespace UI
             dgvUsuarios.DataSource = conexion.ObtenerUsuarios();
 
             ConfigurarGrillaUsuarios();
+        }
+        public void Actualizar(Idioma idioma)
+        {
+            traductor.TraducirFormulario(this, idioma);
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            GestorIdiomaService.Instancia.Quitar(this);
+
+            base.OnFormClosed(e);
         }
     }
 }

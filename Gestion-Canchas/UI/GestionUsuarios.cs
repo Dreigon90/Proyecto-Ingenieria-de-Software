@@ -14,11 +14,12 @@ using UI.Helpers;
 
 namespace UI
 {
-    public partial class GestionUsuarios : Form
+    public partial class GestionUsuarios : Form, IObserverIdioma
     {
         UsuarioConexionBLL usuarioBLL = new UsuarioConexionBLL();
         private Usuario usuarioSeleccionado;
         BitacoraBLL bitacoraBLL = new BitacoraBLL();
+        private Traductor traductor = new Traductor();
         public GestionUsuarios()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace UI
             dgvUsuarios.Columns["Email"].HeaderText = "Email";
             dgvUsuarios.Columns["Telefono"].HeaderText = "Teléfono";
             dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            GestorIdiomaService.Instancia.Agregar(this);
 
         }
         private void ConfigurarVista()
@@ -82,6 +84,16 @@ namespace UI
             MessageBox.Show("Usuario modificado correctamente.");
 
             dgvUsuarios.DataSource = usuarioBLL.ObtenerUsuarios();
+        }
+        public void Actualizar(Idioma idioma)
+        {
+            traductor.TraducirFormulario(this, idioma);
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            GestorIdiomaService.Instancia.Quitar(this);
+
+            base.OnFormClosed(e);
         }
     }
 }

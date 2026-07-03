@@ -67,6 +67,10 @@ namespace BLL
                 $"Modificó el usuario '{username}'",
                 "INFO");
         }
+        public void ActualizarIdioma(int idUsuario, int idIdioma)
+        {
+            usuarioDAL.ActualizarIdioma(idUsuario, idIdioma);
+        }
 
     }
 
