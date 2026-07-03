@@ -84,7 +84,7 @@ namespace DAL.Composite
                         {
                             Id = Convert.ToInt32(row["id"]),
                             Nombre = row["nombre"].ToString(),
-                            Permiso = (TipoPermiso)Enum.Parse(typeof(TipoPermiso), row["permiso"].ToString())
+                            Permiso = (TipoPermiso)Enum.Parse(typeof(TipoPermiso), row["Tipo"].ToString())
                         };
 
                         lista.Add(patente);
@@ -126,6 +126,8 @@ namespace DAL.Composite
                 throw e;
             }
         }
+
+        // Se contruye el árbol Composite a partir de los datos obtenidos de la base de datos
         public IList<Componente> GetAll(string familia)
         {
             List<Componente> lista = new List<Componente>();
@@ -143,7 +145,7 @@ namespace DAL.Composite
                     { "@familiaId", familiaId != null ? (object)familiaId : DBNull.Value }
                 };
 
-                var ds = dAO.EjecutarDataSet("GetAllComponentes", parametros);
+                var ds = dAO.EjecutarDataSet("GetAllComponentes", parametros); // StoreProcedure contiene la consulta recursiva en la base de datos
 
                 if (ds.Tables.Count > 0)
                 {
@@ -151,7 +153,7 @@ namespace DAL.Composite
                     {
                         int id = Convert.ToInt32(row["id"]);
                         string nombre = row["nombre"].ToString();
-                        string permisoStr = row["permiso"] != DBNull.Value ? row["permiso"].ToString() : null;
+                        string permisoStr = row["Tipo"] != DBNull.Value ? row["Tipo"].ToString() : null;
                         int? idPadre = row["id_permiso_padre"] != DBNull.Value ? Convert.ToInt32(row["id_permiso_padre"]) : (int?)null;
 
                         Componente componente;
@@ -217,7 +219,7 @@ namespace DAL.Composite
                 {
                     int id = Convert.ToInt32(row["id"]);
                     string nombre = row["nombre"].ToString();
-                    string permisoStr = row["permiso"] != DBNull.Value ? row["permiso"].ToString() : null;
+                    string permisoStr = row["Tipo"] != DBNull.Value ? row["Tipo"].ToString() : null;
 
                     Componente c;
 

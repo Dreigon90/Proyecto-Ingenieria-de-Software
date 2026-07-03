@@ -105,14 +105,14 @@ namespace UI
 
         private void permisosYFamiliasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormPermisosFamilias formPermisosFamilias = new FormPermisosFamilias();
+            FormPermisosFamilias formPermisosFamilias = new FormPermisosFamilias(this);
             formPermisosFamilias.Show();
             this.Hide();
         }
 
         private void rolesYUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormUsuariosRoles formUsuariosRoles = new FormUsuariosRoles();
+            FormUsuariosRoles formUsuariosRoles = new FormUsuariosRoles(this);
             formUsuariosRoles.Show();
             this.Hide();
         }
