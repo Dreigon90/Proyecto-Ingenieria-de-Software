@@ -267,59 +267,201 @@ END
 GO
 
 
+/****** Tablas******/
 
 USE GestionCanchas;
 GO
 
-/*=====================================================
-  TABLA: Permiso
-=====================================================*/
 CREATE TABLE Permiso
 (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     Nombre NVARCHAR(100) NOT NULL,
-    Tipo NVARCHAR(20) NOT NULL
+    Tipo NVARCHAR(50) NOT NULL
 );
 GO
 
-/*=====================================================
-  TABLA: Permiso_Permiso
-=====================================================*/
+
+
 CREATE TABLE Permiso_Permiso
 (
-    IdPermisoPadre INT NOT NULL,
-    IdPermisoHijo INT NOT NULL,
+    Id_Permiso_Padre INT NOT NULL,
+    Id_Permiso_Hijo INT NOT NULL,
 
     CONSTRAINT PK_Permiso_Permiso
-        PRIMARY KEY (IdPermisoPadre, IdPermisoHijo),
+        PRIMARY KEY (Id_Permiso_Padre, Id_Permiso_Hijo),
 
     CONSTRAINT FK_PP_Padre
-        FOREIGN KEY (IdPermisoPadre)
+        FOREIGN KEY (Id_Permiso_Padre)
         REFERENCES Permiso(Id),
 
     CONSTRAINT FK_PP_Hijo
-        FOREIGN KEY (IdPermisoHijo)
+        FOREIGN KEY (Id_Permiso_Hijo)
         REFERENCES Permiso(Id)
 );
 GO
 
-/*=====================================================
-  TABLA: Usuario_Permiso
-=====================================================*/
+
 CREATE TABLE Usuario_Permiso
 (
-    IdUsuario INT NOT NULL,
-    IdPermiso INT NOT NULL,
+    Id_Usuario INT NOT NULL,
+    Id_Permiso INT NOT NULL,
 
     CONSTRAINT PK_Usuario_Permiso
-        PRIMARY KEY (IdUsuario, IdPermiso),
+        PRIMARY KEY (Id_Usuario, Id_Permiso),
 
     CONSTRAINT FK_UP_Usuario
-        FOREIGN KEY (IdUsuario)
+        FOREIGN KEY (Id_Usuario)
         REFERENCES Usuario(id_usuario),
 
     CONSTRAINT FK_UP_Permiso
-        FOREIGN KEY (IdPermiso)
+        FOREIGN KEY (Id_Permiso)
         REFERENCES Permiso(Id)
 );
 GO
+
+
+/****** Insert en tablas ******/
+SET IDENTITY_INSERT Permiso ON;
+GO
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (1, 'Administrador', 'PuedeHacerTodo');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (2, 'Administrador de reservas', 'PuedeHacerA');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (3, 'Prueba', 'PuedeHacerB');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (4, 'FamiliaPrueba', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (5, 'FamiliaPrueba', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (6, 'FamiliaPrueba', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (7, 'Juan', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (8, 'prueba', 'PuedeHacerC');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (9, 'NuevaFamiliaDeAdmin', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (10, 'Profe', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (11, 'Profe2', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (12, 'Profe3', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (13, 'Profe4', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (14, 'PatprofeA', 'PuedeHacerB');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (15, 'PatprofeB', 'PuedeHacerC');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (16, 'PatprofeC', 'PuedeHacerD');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (17, 'Reporteria', 'PuedeHacerC');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (18, 'Joaco', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (19, 'Sofi', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (20, 'Habilita Reserva', 'PuedeHacerD');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (21, 'Prueba recursividad', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (22, 'Recepcionista', 'PuedeReservar');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (23, 'SupervisorCancha', 'PuedeBloquearCancha');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (24, 'Cajero', 'PuedeConfirmarPagos');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (25, 'FamiliaAdmin', NULL);
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (26, 'EncargadoMantenimiento', 'PuedeConfigurarMantenimiento');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (27, 'PuedeAutorizarPromos', 'JefeDeVentas');
+INSERT INTO Permiso (Id, Nombre, Tipo) VALUES (28, 'Puede Aplicar Promos', 'PuedeAplicarPromociones');
+GO
+SET IDENTITY_INSERT Permiso OFF;
+GO
+
+
+SET IDENTITY_INSERT dbo.Permiso_Permiso OFF;
+GO
+INSERT INTO dbo.Permiso_Permiso (Id_Permiso_Padre, Id_Permiso_Hijo)
+VALUES
+    (4, 1),
+    (4, 2),
+    (4, 3),
+    (5, 4),
+    (5, 6),
+    (10, 14),
+    (10, 15),
+    (10, 16),
+    (11, 8),
+    (11, 10),
+    (11, 14),
+    (12, 11),
+    (13, 12),
+    (13, 25),
+    (18, 1),
+    (19, 17),
+    (21, 1),
+    (21, 5),
+    (21, 6),
+    (21, 9),
+    (21, 20),
+    (25, 1),
+    (25, 12),
+    (25, 17),
+    (25, 22),
+    (25, 23),
+    (25, 24),
+    (25, 26);
+GO
+
+INSERT INTO Usuario_Permiso (Id_Usuario, Id_Permiso)
+VALUES (1, 1);
+GO
+
+
+/****** Store Procedures ******/
+USE GestionCanchas;
+GO
+
+CREATE OR ALTER PROCEDURE ObtenerUsuarios
+AS
+BEGIN
+    SELECT
+        id_usuario,
+        username,
+        password,
+        Email,
+        Telefono
+    FROM Usuario;
+END
+GO
+
+
+CREATE PROCEDURE [dbo].[GetAllPatentes]
+AS
+BEGIN
+    SELECT Id, Nombre, Tipo
+    FROM Permiso
+    WHERE Tipo IS NOT NULL;
+END;
+GO
+
+CREATE PROCEDURE [dbo].[GetAllFamilias]
+AS
+BEGIN
+    SELECT Id, Nombre
+    FROM Permiso
+    WHERE Tipo IS NULL;
+END;
+GO
+
+CREATE PROCEDURE [dbo].[ObtenerPermisosUsuario]
+    @usuarioId INT
+AS
+BEGIN
+    SELECT p.id, p.nombre, p.Tipo
+    FROM Usuario_Permiso up
+    INNER JOIN permiso p ON up.id_permiso = p.id
+    WHERE up.id_usuario = @usuarioId;
+END
+GO
+
+
+CREATE PROCEDURE [dbo].[GetAllComponentes]
+    @familiaId INT = NULL
+AS
+BEGIN
+    WITH recursivo AS (
+        SELECT sp2.id_permiso_padre, sp2.id_permiso_hijo
+        FROM permiso_permiso sp2
+        WHERE (@familiaId IS NULL AND sp2.id_permiso_padre IS NULL)
+           OR (@familiaId IS NOT NULL AND sp2.id_permiso_padre = @familiaId)
+        
+        UNION ALL
+
+        SELECT sp.id_permiso_padre, sp.id_permiso_hijo
+        FROM permiso_permiso sp
+        INNER JOIN recursivo r ON r.id_permiso_hijo = sp.id_permiso_padre
+    )
+    SELECT r.id_permiso_padre, r.id_permiso_hijo, p.id, p.nombre, p.Tipo
+    FROM recursivo r
+    INNER JOIN permiso p ON r.id_permiso_hijo = p.id;
+END;
+GO
+
