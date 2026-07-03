@@ -14,6 +14,7 @@ namespace BE
         public string Email { get; set; }
         public string Telefono { get; set; }
         public int Id { get; set; }
+        public int IdIdioma { get; set; }
 
 
 

@@ -61,6 +61,7 @@
             this.rolesYUsuariosToolStripMenuItem});
             this.menuGestionUsuarios.Name = "menuGestionUsuarios";
             this.menuGestionUsuarios.Size = new System.Drawing.Size(146, 24);
+            this.menuGestionUsuarios.Tag = "menuGestionUsuarios";
             this.menuGestionUsuarios.Text = "Gestionar Usuarios";
             this.menuGestionUsuarios.Click += new System.EventHandler(this.menuGestionUsuarios_Click);
             // 
@@ -68,6 +69,7 @@
             // 
             this.canchasToolStripMenuItem.Name = "canchasToolStripMenuItem";
             this.canchasToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.canchasToolStripMenuItem.Tag = "canchasToolStripMenuItem";
             this.canchasToolStripMenuItem.Text = "Canchas";
             this.canchasToolStripMenuItem.Click += new System.EventHandler(this.canchasToolStripMenuItem_Click);
             // 
@@ -75,6 +77,7 @@
             // 
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
             this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.reservasToolStripMenuItem.Tag = "reservasToolStripMenuItem";
             this.reservasToolStripMenuItem.Text = "Reservas";
             this.reservasToolStripMenuItem.Click += new System.EventHandler(this.reservasToolStripMenuItem_Click);
             // 
@@ -82,6 +85,7 @@
             // 
             this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
             this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.bitacoraToolStripMenuItem.Tag = "bitacoraToolStripMenuItem";
             this.bitacoraToolStripMenuItem.Text = "Bitacora";
             this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
@@ -89,6 +93,7 @@
             // 
             this.auditoriaToolStripMenuItem.Name = "auditoriaToolStripMenuItem";
             this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.auditoriaToolStripMenuItem.Tag = "auditoriaToolStripMenuItem";
             this.auditoriaToolStripMenuItem.Text = "Auditoria";
             this.auditoriaToolStripMenuItem.Click += new System.EventHandler(this.auditoriaToolStripMenuItem_Click);
             // 

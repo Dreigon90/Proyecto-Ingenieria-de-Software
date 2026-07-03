@@ -98,6 +98,8 @@
     <Compile Include="Helpers\EstilosUI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Traductor.cs" />
+    <Compile Include="TraductorService.cs" />
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>

@@ -79,6 +79,7 @@
             this.groupBox1.Size = new System.Drawing.Size(817, 296);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "groupBox1";
             this.groupBox1.Text = "Usuarios del sistema";
             // 
             // groupBox2
@@ -89,6 +90,7 @@
             this.groupBox2.Size = new System.Drawing.Size(817, 355);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Tag = "groupBox2";
             this.groupBox2.Text = "Historial de cambios";
             // 
             // Auditoria

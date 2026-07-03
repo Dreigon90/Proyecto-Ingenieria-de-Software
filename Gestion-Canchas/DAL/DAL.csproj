@@ -44,7 +44,8 @@
   <ItemGroup>
     <Compile Include="AuditoriaDAL.cs" />
     <Compile Include="BitacoraDAL.cs" />
-    <Compile Include="Composite\PermisoDAL.cs" />
+	<Compile Include="IdiomaDAL.cs" />
+	<Compile Include="Composite\PermisoDAL.cs" />
     <Compile Include="UsuarioDAL.cs" />
     <Compile Include="DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

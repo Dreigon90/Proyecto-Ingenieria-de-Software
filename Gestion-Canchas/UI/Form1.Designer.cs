@@ -36,6 +36,8 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panelLogin = new System.Windows.Forms.Panel();
+            this.lblIdioma = new System.Windows.Forms.Label();
+            this.cmbIdioma = new System.Windows.Forms.ComboBox();
             this.lblLogin = new System.Windows.Forms.Label();
             this.panelLogin.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +63,7 @@
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(54, 16);
             this.lblUsuario.TabIndex = 2;
+            this.lblUsuario.Tag = "lblUsuario";
             this.lblUsuario.Text = "Usuario";
             // 
             // lblPassword
@@ -68,8 +71,9 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Location = new System.Drawing.Point(191, 213);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(95, 20);
+            this.lblPassword.Size = new System.Drawing.Size(76, 16);
             this.lblPassword.TabIndex = 3;
+            this.lblPassword.Tag = "lblPassword";
             this.lblPassword.Text = "Contraseña";
             // 
             // btnLogin
@@ -78,6 +82,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(154, 46);
             this.btnLogin.TabIndex = 4;
+            this.btnLogin.Tag = "btnLogin";
             this.btnLogin.Text = "Ingresar";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -89,10 +94,13 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(199, 16);
             this.lblTitulo.TabIndex = 5;
+            this.lblTitulo.Tag = "lblTitulo";
             this.lblTitulo.Text = "Sistema de Gestión de Canchas";
             // 
             // panelLogin
             // 
+            this.panelLogin.Controls.Add(this.lblIdioma);
+            this.panelLogin.Controls.Add(this.cmbIdioma);
             this.panelLogin.Controls.Add(this.lblLogin);
             this.panelLogin.Controls.Add(this.lblUsuario);
             this.panelLogin.Controls.Add(this.lblPassword);
@@ -104,6 +112,26 @@
             this.panelLogin.Size = new System.Drawing.Size(615, 496);
             this.panelLogin.TabIndex = 6;
             // 
+            // lblIdioma
+            // 
+            this.lblIdioma.AutoSize = true;
+            this.lblIdioma.Location = new System.Drawing.Point(364, 21);
+            this.lblIdioma.Name = "lblIdioma";
+            this.lblIdioma.Size = new System.Drawing.Size(48, 16);
+            this.lblIdioma.TabIndex = 9;
+            this.lblIdioma.Tag = "lblIdioma";
+            this.lblIdioma.Text = "Idioma";
+            // 
+            // cmbIdioma
+            // 
+            this.cmbIdioma.FormattingEnabled = true;
+            this.cmbIdioma.Location = new System.Drawing.Point(367, 50);
+            this.cmbIdioma.Name = "cmbIdioma";
+            this.cmbIdioma.Size = new System.Drawing.Size(162, 24);
+            this.cmbIdioma.TabIndex = 8;
+            this.cmbIdioma.Tag = "cmbIdioma";
+            this.cmbIdioma.SelectedIndexChanged += new System.EventHandler(this.cmbIdioma_SelectedIndexChanged);
+            // 
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
@@ -111,6 +139,7 @@
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(40, 16);
             this.lblLogin.TabIndex = 7;
+            this.lblLogin.Tag = "lblLogin";
             this.lblLogin.Text = "Login";
             // 
             // Form1
@@ -122,7 +151,9 @@
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.lblTitulo);
             this.Name = "Form1";
+            this.Tag = "frmLogin";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
             this.ResumeLayout(false);
@@ -140,6 +171,8 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Panel panelLogin;
         private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Label lblIdioma;
+        private System.Windows.Forms.ComboBox cmbIdioma;
     }
 }
 
