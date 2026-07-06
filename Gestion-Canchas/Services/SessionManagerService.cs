@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
+using BE.Composite;
 
 namespace Services
 {
@@ -56,6 +57,37 @@ namespace Services
             {
                 throw new Exception("Sesión no iniciada");
             }
+        }
+
+
+        // Validación de permisos
+        public bool TienePermiso(TipoPermiso permisoBuscado)
+        {
+            if (usuario == null)
+                return false;
+
+            foreach (Componente componente in usuario.Permisos)
+            {
+                if (TienePermisoRecursivo(componente, permisoBuscado))
+                    return true;
+            }
+
+            return false;
+        }
+
+        // Validación de recursividad
+        private bool TienePermisoRecursivo(Componente componente, TipoPermiso permisoBuscado)
+        {
+            if (componente.Permiso == permisoBuscado)
+                return true;
+
+            foreach (Componente hijo in componente.ListaHijos)
+            {
+                if (TienePermisoRecursivo(hijo, permisoBuscado)) // Recursividad
+                    return true;
+            }
+
+            return false;
         }
 
     }

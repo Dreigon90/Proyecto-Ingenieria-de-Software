@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BE;
 using DAL;
+using DAL.Composite;
 using Services;
 
 namespace BLL
@@ -15,6 +16,8 @@ namespace BLL
         EncriptacionService Encriptacion = new EncriptacionService();
         private AuditoriaBLL auditoriaBLL = new AuditoriaBLL();
         BitacoraBLL bitacoraBLL = new BitacoraBLL();
+
+        PermisoDAL permisoDAL = new PermisoDAL(); // Para integración de usuario con permisos
 
         public Usuario ValidarUsuario(string username, string password)
         {
@@ -29,7 +32,9 @@ namespace BLL
             {
                 throw new Exception("Usuario y/o contraseña incorrectos");
             }
- 
+            // Cargar permisos del usuario
+            permisoDAL.FillUserComponents(usuario);
+
             return usuario;
         }
 
