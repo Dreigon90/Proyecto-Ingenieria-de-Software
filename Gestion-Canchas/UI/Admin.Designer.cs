@@ -32,11 +32,11 @@
             this.menuGestionUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.permisosYFamiliasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rolesYUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canchasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +68,7 @@
             // 
             // permisosYFamiliasToolStripMenuItem
             // 
+            this.permisosYFamiliasToolStripMenuItem.AccessibleName = "GestionarPermisosYFamilias";
             this.permisosYFamiliasToolStripMenuItem.Name = "permisosYFamiliasToolStripMenuItem";
             this.permisosYFamiliasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.permisosYFamiliasToolStripMenuItem.Text = "Permisos y Familias";
@@ -75,10 +76,19 @@
             // 
             // rolesYUsuariosToolStripMenuItem
             // 
+            this.rolesYUsuariosToolStripMenuItem.AccessibleName = "GestionarUsuariosYRoles";
             this.rolesYUsuariosToolStripMenuItem.Name = "rolesYUsuariosToolStripMenuItem";
             this.rolesYUsuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.rolesYUsuariosToolStripMenuItem.Text = "Usuarios y Roles";
             this.rolesYUsuariosToolStripMenuItem.Click += new System.EventHandler(this.rolesYUsuariosToolStripMenuItem_Click);
+            // 
+            // modificarUsuariosToolStripMenuItem
+            // 
+            this.modificarUsuariosToolStripMenuItem.AccessibleName = "ModificarUsuarios";
+            this.modificarUsuariosToolStripMenuItem.Name = "modificarUsuariosToolStripMenuItem";
+            this.modificarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modificarUsuariosToolStripMenuItem.Text = "Modificar Usuarios";
+            this.modificarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.modificarUsuariosToolStripMenuItem_Click);
             // 
             // canchasToolStripMenuItem
             // 
@@ -112,13 +122,6 @@
             this.auditoriaToolStripMenuItem.Text = "Auditoria";
             this.auditoriaToolStripMenuItem.Click += new System.EventHandler(this.auditoriaToolStripMenuItem_Click);
             // 
-            // modificarUsuariosToolStripMenuItem
-            // 
-            this.modificarUsuariosToolStripMenuItem.Name = "modificarUsuariosToolStripMenuItem";
-            this.modificarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.modificarUsuariosToolStripMenuItem.Text = "Modificar Usuarios";
-            this.modificarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.modificarUsuariosToolStripMenuItem_Click);
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -129,6 +132,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Admin";
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.Admin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

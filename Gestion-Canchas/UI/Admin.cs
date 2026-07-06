@@ -13,6 +13,7 @@ using Services;
 using UI.Helpers;
 using FontAwesome.Sharp;
 using UI.GestionPermisos;
+using BE.Composite;
 
 namespace UI
 {
@@ -25,6 +26,8 @@ namespace UI
             InitializeComponent();
             ConfigurarVista();
             GestorIdiomaService.Instancia.Agregar(this);
+
+            ValidarMenus();
         }
         private void ConfigurarVista()
         {
@@ -131,5 +134,55 @@ namespace UI
 
             form.Show();
         }
+
+        private void Admin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ValidarMenus()
+        {
+            //
+            //foreach (ToolStripItem item in menuStrip1.Items)
+            //{
+            //    if (item is ToolStripMenuItem menu)
+            //    {
+            //        ValidarMenuPorItem(menu);
+            //    }
+            //}
+
+            // Validacion de menus controlada
+            MenuItemsEnDisabled(menuGestionUsuarios);
+            ValidarMenuPorItem(menuGestionUsuarios);
+        }
+
+        public void MenuItemsEnDisabled(ToolStripMenuItem menuitem)
+        {
+            foreach (ToolStripDropDownItem menudownitem in menuitem.DropDownItems)
+            {
+                menudownitem.Enabled = false;
+            }
+        }
+
+        // Validación de permisos del usuario vs permiso del menu-AccessibleName
+        private void ValidarMenuPorItem(ToolStripMenuItem menu)
+        {
+            if (!string.IsNullOrWhiteSpace(menu.AccessibleName))
+            {
+                TipoPermiso permiso = (TipoPermiso)Enum.Parse(typeof(TipoPermiso), menu.AccessibleName);
+
+                menu.Enabled = SessionManagerService.GetInstance.TienePermiso(permiso);
+            }
+
+            foreach (ToolStripItem item in menu.DropDownItems)
+            {
+                if (item is ToolStripMenuItem submenu)
+                {
+                    ValidarMenuPorItem(submenu); // Recursividad
+                }
+            }
+        }
+
+
     }
 }
