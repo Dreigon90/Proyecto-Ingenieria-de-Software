@@ -188,5 +188,6 @@ namespace UI.GestionPermisos
                 MessageBox.Show("Error al guardar el usuario");
             }
         }
+
     }
 }

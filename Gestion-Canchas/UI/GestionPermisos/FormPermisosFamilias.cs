@@ -71,7 +71,6 @@ namespace UI.GestionPermisos
                 //Para traerme las familias
                 flia = permisoBLL.GetAll("=" + seleccion.Id);
 
-
                 foreach (var i in flia)
                     seleccion.AgregarHijo(i);
             }
@@ -97,8 +96,10 @@ namespace UI.GestionPermisos
         void MostrarEnTreeView(TreeNode tn, Componente c)
         {
             TreeNode n = new TreeNode(c.Nombre);
-            tn.Tag = c;
+
+            n.Tag = c;
             tn.Nodes.Add(n);
+
             if (c.ListaHijos != null)
                 foreach (var item in c.ListaHijos)
                 {

@@ -316,7 +316,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(638, 444);
+            this.btnVolver.Location = new System.Drawing.Point(1020, 522);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(115, 32);
             this.btnVolver.TabIndex = 16;
@@ -328,7 +328,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1193, 525);
+            this.ClientSize = new System.Drawing.Size(1193, 600);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.grpFamlias);
             this.Controls.Add(this.grpFamilias);

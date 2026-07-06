@@ -9,18 +9,10 @@ namespace BE.Composite
     public enum TipoPermiso
     {
         //Permisos del sistema
-        PuedeHacerTodo,
-        PuedeReservar,
-        PuedeVisualizarDashboards,
-        PuedeConfirmarPagos,
-        PuedeBloquearCancha,
-        PuedeConfigurarMantenimiento,
-        PuedeAplicarPromociones,
-        JefeDeVentas,
-        PuedeGestionarPedidosDeCompra,
-        PuedeHacerA,
-        PuedeHacerB,
-        PuedeHacerC,
-        PuedeHacerD
+        GestionarPermisosYFamilias,
+        GestionarUsuariosYRoles,
+        ModificarUsuarios,
+        PermisoLibre,
+        SinConfig
     }
 }
