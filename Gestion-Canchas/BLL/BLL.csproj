@@ -43,8 +43,9 @@
   <ItemGroup>
     <Compile Include="AuditoriaBLL.cs" />
     <Compile Include="BitacoraBLL.cs" />
-	<Compile Include="IdiomaBLL.cs" />
-	<Compile Include="Composite\PermisoBLL.cs" />
+    <Compile Include="IdiomaBLL.cs" />
+    <Compile Include="Composite\PermisoBLL.cs" />
+    <Compile Include="Integridad\DigitoVerificadorBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioConexionBLL.cs" />
   </ItemGroup>

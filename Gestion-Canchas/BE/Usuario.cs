@@ -16,8 +16,8 @@ namespace BE
         public int Id { get; set; }
         public int IdIdioma { get; set; }
 
+        // Integracion de digito verificador
         public string DVH { get; set; } 
-
 
 
         private List<Componente> _permisos;

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BE;
 using BLL;
+using BLL.Integridad;
 using Services;
 using UI.Helpers;
 
@@ -147,6 +148,14 @@ namespace UI
         private void Form1_Load(object sender, EventArgs e)
         {
             LlenarComboIdiomas();
+
+            // PRUEBA CALCULO Y VERIFICACIÓN DIGITO VERIFICADOR
+            DigitoVerificadorBLL bll = new DigitoVerificadorBLL();
+            bll.RecalcularIntegridad();
+            MessageBox.Show("DVH y DVV recalculados correctamente.");
+            //bool resultado = bll.VerificarDVHUsuarios();
+            //MessageBox.Show(resultado.ToString());
+
         }
     }
 }

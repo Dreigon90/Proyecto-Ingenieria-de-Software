@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DigitoVerificadorService.cs" />
     <Compile Include="GestorIdiomaService.cs" />
     <Compile Include="IObserverIdioma.cs" />
     <Compile Include="ISubjectIdioma.cs" />
