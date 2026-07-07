@@ -16,6 +16,8 @@ namespace BE
         public int Id { get; set; }
         public int IdIdioma { get; set; }
 
+        public string DVH { get; set; } 
+
 
 
         private List<Componente> _permisos;

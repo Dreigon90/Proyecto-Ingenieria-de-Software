@@ -119,5 +119,42 @@ namespace DAL
         }
 
 
+        public string EjecutarScalarString(string pCommandText, Dictionary<string, object> parametros = null)
+        {
+            try
+            {
+                using (SqlCommand mCom = new SqlCommand(pCommandText, mConexion))
+                {
+                    mCom.CommandType = CommandType.StoredProcedure;
+
+                    if (parametros != null)
+                    {
+                        foreach (var param in parametros)
+                        {
+                            mCom.Parameters.AddWithValue(param.Key, param.Value);
+                        }
+                    }
+
+                    mConexion.Open();
+
+                    object resultado = mCom.ExecuteScalar();
+
+                    if (resultado == null || resultado == DBNull.Value)
+                        return "";
+
+                    return resultado.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (mConexion.State != ConnectionState.Closed)
+                    mConexion.Close();
+            }
+        }
+
     }
 }
