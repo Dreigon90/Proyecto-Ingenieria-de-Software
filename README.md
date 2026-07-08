@@ -4,11 +4,11 @@ Proyecto para la materia Ingeniería de Software 2026
 
 ### Usuarios para Login
 
-| Usuario | Contraseña |
-|----------|------------|
-| `admin` | `1234` |
-| `sebastian` | `1234` |
-| `fer` | `1234` |
+| Usuario | Contraseña | Rol |
+|----------|------------|--------
+| `admin` | `1234` | `Administrador` |
+| `sebastian` | `1234` | `Modificar Usuarios`|
+| `fer` | `1234` | `Administrador` |
 
 
 ### Configuración inicial
