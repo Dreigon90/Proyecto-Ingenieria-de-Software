@@ -63,6 +63,15 @@ namespace BLL.Integridad
             }
         }
 
+        // Integración con Login      
+        public bool VerificarIntegridadUsuarios()
+        {
+            bool dvhCorrecto = VerificarDVHUsuarios();
+            bool dvvCorrecto = VerificarDVVUsuarios();
+
+            return dvhCorrecto && dvvCorrecto;
+        }
+
         // Métodos de verificación
         public bool VerificarDVHUsuarios()
         {
@@ -81,6 +90,27 @@ namespace BLL.Integridad
                 }
 
                 return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool VerificarDVVUsuarios()
+        {
+            try
+            {
+                // Obtengo todos los DVH almacenados
+                List<string> listaDVH = digitoVerificadorDAL.ObtenerDVHUsuarios();
+
+                // Calculo nuevamente el DVV
+                string dvvCalculado = DigitoVerificadorService.CalcularDVV(listaDVH);
+
+                // Obtengo el DVV guardado en la base
+                string dvvGuardado = digitoVerificadorDAL.ObtenerDVV("Usuario");
+
+                return dvvCalculado == dvvGuardado;
             }
             catch (Exception ex)
             {

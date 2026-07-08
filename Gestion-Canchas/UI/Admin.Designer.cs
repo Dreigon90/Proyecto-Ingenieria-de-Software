@@ -37,6 +37,7 @@
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRecalcularDV = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             this.auditoriaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1070, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,7 +71,7 @@
             // 
             this.permisosYFamiliasToolStripMenuItem.AccessibleName = "GestionarPermisosYFamilias";
             this.permisosYFamiliasToolStripMenuItem.Name = "permisosYFamiliasToolStripMenuItem";
-            this.permisosYFamiliasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.permisosYFamiliasToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.permisosYFamiliasToolStripMenuItem.Text = "Permisos y Familias";
             this.permisosYFamiliasToolStripMenuItem.Click += new System.EventHandler(this.permisosYFamiliasToolStripMenuItem_Click);
             // 
@@ -78,7 +79,7 @@
             // 
             this.rolesYUsuariosToolStripMenuItem.AccessibleName = "GestionarUsuariosYRoles";
             this.rolesYUsuariosToolStripMenuItem.Name = "rolesYUsuariosToolStripMenuItem";
-            this.rolesYUsuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.rolesYUsuariosToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.rolesYUsuariosToolStripMenuItem.Text = "Usuarios y Roles";
             this.rolesYUsuariosToolStripMenuItem.Click += new System.EventHandler(this.rolesYUsuariosToolStripMenuItem_Click);
             // 
@@ -86,7 +87,7 @@
             // 
             this.modificarUsuariosToolStripMenuItem.AccessibleName = "ModificarUsuarios";
             this.modificarUsuariosToolStripMenuItem.Name = "modificarUsuariosToolStripMenuItem";
-            this.modificarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modificarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.modificarUsuariosToolStripMenuItem.Text = "Modificar Usuarios";
             this.modificarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.modificarUsuariosToolStripMenuItem_Click);
             // 
@@ -122,11 +123,22 @@
             this.auditoriaToolStripMenuItem.Text = "Auditoria";
             this.auditoriaToolStripMenuItem.Click += new System.EventHandler(this.auditoriaToolStripMenuItem_Click);
             // 
+            // btnRecalcularDV
+            // 
+            this.btnRecalcularDV.Location = new System.Drawing.Point(38, 147);
+            this.btnRecalcularDV.Name = "btnRecalcularDV";
+            this.btnRecalcularDV.Size = new System.Drawing.Size(142, 49);
+            this.btnRecalcularDV.TabIndex = 5;
+            this.btnRecalcularDV.Text = "Recalcular Digitos Verificadores";
+            this.btnRecalcularDV.UseVisualStyleBackColor = true;
+            this.btnRecalcularDV.Click += new System.EventHandler(this.btnRecalcularDV_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1070, 634);
+            this.Controls.Add(this.btnRecalcularDV);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -150,5 +162,6 @@
         private System.Windows.Forms.ToolStripMenuItem permisosYFamiliasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rolesYUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarUsuariosToolStripMenuItem;
+        private System.Windows.Forms.Button btnRecalcularDV;
     }
 }

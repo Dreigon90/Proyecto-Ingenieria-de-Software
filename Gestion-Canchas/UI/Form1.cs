@@ -24,6 +24,10 @@ namespace UI
         public string password;
         private Traductor traductor = new Traductor();
         private bool isInitializingComboBox = false;
+
+        private bool integridadCorrecta = true; // Verificación de integridad antes de login
+        DigitoVerificadorBLL digitoVerificadorBLL = new DigitoVerificadorBLL();
+
         public Form1()
         {
             InitializeComponent();
@@ -47,6 +51,7 @@ namespace UI
             GestorIdiomaService.Instancia.Agregar(this);
             //GestorIdiomaService.Instancia.CambiarIdioma( new Idioma() {Id = 1,Nombre = "Español" });
         }
+
         private void btnLogin_Click(object sender, EventArgs e) {
             try { 
                 if (ValidarIngresoDeCampos()) {
@@ -70,6 +75,9 @@ namespace UI
                         cmbIdioma.SelectedValue = usu.IdIdioma;
 
                         Admin admin = new Admin();
+                        // Defino estado de integridad
+                        admin.IntegridadCorrecta = integridadCorrecta;
+
                         admin.Show();
                         this.Hide();
                     }
@@ -149,13 +157,20 @@ namespace UI
         {
             LlenarComboIdiomas();
 
-            // PRUEBA CALCULO Y VERIFICACIÓN DIGITO VERIFICADOR
-            DigitoVerificadorBLL bll = new DigitoVerificadorBLL();
-            bll.RecalcularIntegridad();
-            MessageBox.Show("DVH y DVV recalculados correctamente.");
-            //bool resultado = bll.VerificarDVHUsuarios();
-            //MessageBox.Show(resultado.ToString());
+            //// Prueba recalcular DV
+            //DigitoVerificadorBLL bll = new DigitoVerificadorBLL();
+            //bll.RecalcularIntegridad();
+            //MessageBox.Show("DVH y DVV recalculados correctamente.");
 
+            integridadCorrecta = digitoVerificadorBLL.VerificarIntegridadUsuarios();
+
+            if (!integridadCorrecta)
+            {
+                MessageBox.Show("Se detectó una alteración en la integridad de la tabla Usuario.", "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
         }
+
     }
 }

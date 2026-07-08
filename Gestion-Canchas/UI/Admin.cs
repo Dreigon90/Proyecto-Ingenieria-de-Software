@@ -21,6 +21,9 @@ namespace UI
     {
         BitacoraBLL bitacoraBLL = new BitacoraBLL();
         private Traductor traductor = new Traductor();
+
+        public bool IntegridadCorrecta { get; set; } = true; // Atributo para validación de integridad
+
         public Admin()
         {
             InitializeComponent();
@@ -137,12 +140,36 @@ namespace UI
 
         private void Admin_Load(object sender, EventArgs e)
         {
+            btnRecalcularDV.Visible = false;
 
+            if (!IntegridadCorrecta)
+            {
+                if (SessionManagerService.GetInstance.TienePermiso(TipoPermiso.RecalcularDV))
+                {
+                    btnRecalcularDV.Visible = true;
+
+                    MessageBox.Show(
+                        "Se detectó una alteración en la integridad de la tabla Usuario.\nComo administrador puede recalcular los dígitos verificadores.",
+                        "Advertencia",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    btnRecalcularDV.Visible = false;
+
+                    MessageBox.Show(
+                        "Se detectó una alteración en la integridad de la tabla Usuario.\nComunicarse con un administrador.",
+                        "Advertencia",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+            }
         }
 
         private void ValidarMenus()
         {
-            //
+            //// Validacion de todos los menus
             //foreach (ToolStripItem item in menuStrip1.Items)
             //{
             //    if (item is ToolStripMenuItem menu)
@@ -169,7 +196,7 @@ namespace UI
         {
             if (!string.IsNullOrWhiteSpace(menu.AccessibleName))
             {
-                TipoPermiso permiso = (TipoPermiso)Enum.Parse(typeof(TipoPermiso), menu.AccessibleName);
+                TipoPermiso permiso = (TipoPermiso)Enum.Parse(typeof(TipoPermiso),menu.AccessibleName);
 
                 menu.Enabled = SessionManagerService.GetInstance.TienePermiso(permiso);
             }
@@ -183,6 +210,26 @@ namespace UI
             }
         }
 
+        private void btnRecalcularDV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BLL.Integridad.DigitoVerificadorBLL bll = new BLL.Integridad.DigitoVerificadorBLL();
 
+                bll.RecalcularIntegridad();
+
+                MessageBox.Show("Los dígitos verificadores fueron recalculados correctamente.", "Integridad",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                btnRecalcularDV.Visible = false;
+
+                IntegridadCorrecta = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
