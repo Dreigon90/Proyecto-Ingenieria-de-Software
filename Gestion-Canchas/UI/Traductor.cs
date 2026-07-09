@@ -15,11 +15,9 @@ namespace UI
 
         public void TraducirFormulario(Form formulario, Idioma idioma)
         {
-            List<Traduccion> traducciones =
-                idiomaBLL.ObtenerTraducciones(idioma.Id);
+            List<Traduccion> traducciones = idiomaBLL.ObtenerTraducciones(idioma.Id);
 
-            Dictionary<string, string> dic =
-                new Dictionary<string, string>();
+            Dictionary<string, string> dic = new Dictionary<string, string>();
 
             foreach (var t in traducciones)
                 dic[t.Clave] = t.Texto;
@@ -34,6 +32,13 @@ namespace UI
                 foreach (ToolStripMenuItem item in formulario.MainMenuStrip.Items)
                 {
                     TraducirMenu(item, dic);
+                }
+            }
+            foreach (Control c in formulario.Controls)
+            {
+                if (c is ToolStrip ts)
+                {
+                    TraducirToolStrip(ts, dic);
                 }
             }
         }
@@ -73,6 +78,19 @@ namespace UI
             {
                 if (item is ToolStripMenuItem hijo)
                     TraducirMenu(hijo, dic);
+            }
+        }
+        private static void TraducirToolStrip(ToolStrip toolStrip, Dictionary<string, string> traducciones)
+        {
+            foreach (ToolStripItem item in toolStrip.Items)
+            {
+                if (item.Tag != null)
+                {
+                    string clave = item.Tag.ToString();
+
+                    if (traducciones.ContainsKey(clave))
+                        item.Text = traducciones[clave];
+                }
             }
         }
     }

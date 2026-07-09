@@ -56,6 +56,28 @@ namespace DAL
 
             return lista;
         }
+        public void InsertarIdioma(string nombre)
+        {
+            string command = "InsertarIdioma";
+
+            var parametros = new Dictionary<string, object>()
+            {
+                { "@Nombre", nombre }
+            };
+
+            dao.EjecutarNonQuery(command, parametros);
+        }
+        public void EliminarIdioma(int idIdioma)
+        {
+            string command = "EliminarIdioma";
+
+            var parametros = new Dictionary<string, object>()
+            {
+                { "@IdIdioma", idIdioma }
+            };
+
+            dao.EjecutarNonQuery(command, parametros);
+        }
 
     }
 }

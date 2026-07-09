@@ -47,6 +47,7 @@
     <Compile Include="IdiomaDAL.cs" />
     <Compile Include="Composite\PermisoDAL.cs" />
     <Compile Include="Integridad\DigitoVerificadorDAL.cs" />
+    <Compile Include="TraduccionDAL.cs" />
     <Compile Include="UsuarioDAL.cs" />
     <Compile Include="DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

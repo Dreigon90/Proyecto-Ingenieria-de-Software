@@ -37,8 +37,13 @@
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.idiomasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRecalcularDV = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabelIdioma = new System.Windows.Forms.ToolStripLabel();
+            this.tscmbIdioma = new System.Windows.Forms.ToolStripComboBox();
             this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -49,10 +54,11 @@
             this.canchasToolStripMenuItem,
             this.reservasToolStripMenuItem,
             this.bitacoraToolStripMenuItem,
-            this.auditoriaToolStripMenuItem});
+            this.auditoriaToolStripMenuItem,
+            this.idiomasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1070, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1070, 30);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -123,6 +129,14 @@
             this.auditoriaToolStripMenuItem.Text = "Auditoria";
             this.auditoriaToolStripMenuItem.Click += new System.EventHandler(this.auditoriaToolStripMenuItem_Click);
             // 
+            // idiomasToolStripMenuItem
+            // 
+            this.idiomasToolStripMenuItem.Name = "idiomasToolStripMenuItem";
+            this.idiomasToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.idiomasToolStripMenuItem.Tag = "idiomasToolStripMenuItem";
+            this.idiomasToolStripMenuItem.Text = "Idiomas";
+            this.idiomasToolStripMenuItem.Click += new System.EventHandler(this.idiomasToolStripMenuItem_Click);
+            // 
             // btnRecalcularDV
             // 
             this.btnRecalcularDV.Location = new System.Drawing.Point(38, 147);
@@ -133,11 +147,39 @@
             this.btnRecalcularDV.UseVisualStyleBackColor = true;
             this.btnRecalcularDV.Click += new System.EventHandler(this.btnRecalcularDV_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabelIdioma,
+            this.tscmbIdioma});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1070, 31);
+            this.toolStrip1.TabIndex = 13;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabelIdioma
+            // 
+            this.toolStripLabelIdioma.Name = "toolStripLabelIdioma";
+            this.toolStripLabelIdioma.Size = new System.Drawing.Size(56, 25);
+            this.toolStripLabelIdioma.Tag = "toolStripLabelIdioma";
+            this.toolStripLabelIdioma.Text = "Idioma";
+            // 
+            // tscmbIdioma
+            // 
+            this.tscmbIdioma.AutoSize = false;
+            this.tscmbIdioma.Name = "tscmbIdioma";
+            this.tscmbIdioma.Size = new System.Drawing.Size(180, 28);
+            this.tscmbIdioma.Tag = "tscmbIdioma";
+            this.tscmbIdioma.SelectedIndexChanged += new System.EventHandler(this.tscmbIdioma_SelectedIndexChanged);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 634);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnRecalcularDV);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
@@ -147,6 +189,8 @@
             this.Load += new System.EventHandler(this.Admin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +207,9 @@
         private System.Windows.Forms.ToolStripMenuItem rolesYUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarUsuariosToolStripMenuItem;
         private System.Windows.Forms.Button btnRecalcularDV;
+        private System.Windows.Forms.ToolStripMenuItem idiomasToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelIdioma;
+        private System.Windows.Forms.ToolStripComboBox tscmbIdioma;
     }
 }

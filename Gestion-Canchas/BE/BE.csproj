@@ -49,6 +49,7 @@
     <Compile Include="Composite\Familia.cs" />
     <Compile Include="Composite\Permiso.cs" />
     <Compile Include="Composite\TipoPermiso.cs" />
+    <Compile Include="TraduccionDTO.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioMemento.cs" />

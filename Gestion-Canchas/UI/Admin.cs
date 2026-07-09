@@ -21,6 +21,8 @@ namespace UI
     {
         BitacoraBLL bitacoraBLL = new BitacoraBLL();
         private Traductor traductor = new Traductor();
+        IdiomaBLL idiomaBLL = new IdiomaBLL();
+        private bool cargandoIdioma = false;
 
         public bool IntegridadCorrecta { get; set; } = true; // Atributo para validación de integridad
 
@@ -105,6 +107,10 @@ namespace UI
         public void Actualizar(Idioma idioma)
         {
             traductor.TraducirFormulario(this, idioma);
+            if (tscmbIdioma.ComboBox.SelectedValue == null || (int)tscmbIdioma.ComboBox.SelectedValue != idioma.Id)
+            {
+                tscmbIdioma.ComboBox.SelectedValue = idioma.Id;
+            }
         }
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
@@ -116,15 +122,15 @@ namespace UI
         private void permisosYFamiliasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormPermisosFamilias formPermisosFamilias = new FormPermisosFamilias(this);
+            formPermisosFamilias.MdiParent = this;
             formPermisosFamilias.Show();
-            this.Hide();
         }
 
         private void rolesYUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormUsuariosRoles formUsuariosRoles = new FormUsuariosRoles(this);
+            formUsuariosRoles.MdiParent = this;
             formUsuariosRoles.Show();
-            this.Hide();
         }
 
         private void modificarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -133,7 +139,7 @@ namespace UI
 
             form.MdiParent = this;
 
-            form.WindowState = FormWindowState.Maximized;
+            //form.WindowState = FormWindowState.Maximized;
 
             form.Show();
         }
@@ -141,6 +147,19 @@ namespace UI
         private void Admin_Load(object sender, EventArgs e)
         {
             btnRecalcularDV.Visible = false;
+            // LlenarComboIdiomas();
+            cargandoIdioma = true;
+            tscmbIdioma.ComboBox.DisplayMember = "Nombre";
+            tscmbIdioma.ComboBox.ValueMember = "Id";
+            tscmbIdioma.ComboBox.DataSource = idiomaBLL.ObtenerIdiomas();
+
+            if (GestorIdiomaService.Instancia.IdiomaActual != null)
+            {
+                tscmbIdioma.ComboBox.SelectedValue =
+                    GestorIdiomaService.Instancia.IdiomaActual.Id;
+            }
+
+            cargandoIdioma = false;
 
             if (!IntegridadCorrecta)
             {
@@ -164,6 +183,7 @@ namespace UI
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
                 }
+               
             }
         }
 
@@ -230,6 +250,26 @@ namespace UI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void idiomasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GestionIdiomas idiomas = new GestionIdiomas(this);
+            idiomas.MdiParent = this; // Vincula el form como hijo del contenedor
+            idiomas.Show();
+        }
+
+        private void tscmbIdioma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cargandoIdioma)
+                return;
+
+            if (tscmbIdioma.ComboBox.SelectedItem == null)
+                return;
+
+            Idioma idioma = (Idioma)tscmbIdioma.ComboBox.SelectedItem;
+
+            GestorIdiomaService.Instancia.CambiarIdioma(idioma);
         }
     }
 }

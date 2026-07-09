@@ -21,5 +21,15 @@ namespace BLL
         {
             return idiomaDAL.ObtenerTraducciones(idIdioma);
         }
+        public void InsertarIdioma(string nombre)
+        {
+            idiomaDAL.InsertarIdioma(nombre);
+        }
+
+        public void EliminarIdioma(int idIdioma)
+        {
+            idiomaDAL.EliminarIdioma(idIdioma);
+        }
+
     }
 }
